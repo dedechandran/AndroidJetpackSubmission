@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Movie Catalogue</string>
+
+    <array name="tv_shows">
+        <item>@drawable/tv_poster_arrow</item>
+        <item>@drawable/tv_poster_doom_patrol</item>
+        <item>@drawable/tv_poster_dragon_ball</item>
+        <item>@drawable/tv_poster_fairytail</item>
+        <item>@drawable/tv_poster_family_guy</item>
+        <item>@drawable/tv_poster_flash</item>
+        <item>@drawable/tv_poster_god</item>
+        <item>@drawable/tv_poster_gotham</item>
+        <item>@drawable/tv_poster_grey_anatomy</item>
+        <item>@drawable/tv_poster_hanna</item>
+        <item>@drawable/tv_poster_iron_fist</item>
+        <item>@drawable/tv_poster_naruto_shipudden</item>
+        <item>@drawable/tv_poster_ncis</item>
+        <item>@drawable/tv_poster_riverdale</item>
+        <item>@drawable/tv_poster_shameless</item>
+        <item>@drawable/tv_poster_supergirl</item>
+        <item>@drawable/tv_poster_supernatural</item>
+        <item>@drawable/tv_poster_the_simpson</item>
+        <item>@drawable/tv_poster_the_umbrella</item>
+        <item>@drawable/tv_poster_the_walking_dead</item>
+    </array>
+
+</resources>

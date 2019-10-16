@@ -1,0 +1,87 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 29
+    defaultConfig {
+        applicationId "com.example.androidjetpacksubmission"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "androidx.appcompat:appcompat:$rootProject.appCompatVersion"
+    implementation "androidx.cardview:cardview:$rootProject.cardVersion"
+    implementation "com.google.android.material:material:$rootProject.materialVersion"
+    implementation "androidx.recyclerview:recyclerview:$rootProject.recyclerViewVersion"
+    implementation "androidx.constraintlayout:constraintlayout:$rootProject.constraintLayoutVersion"
+    implementation "androidx.annotation:annotation:$rootProject.androidXAnnotations"
+    implementation "androidx.legacy:legacy-support-v4:$rootProject.androidXLegacySupport"
+
+    implementation "com.google.dagger:dagger:$rootProject.daggerVersion"
+    kapt "com.google.dagger:dagger-compiler:$rootProject.daggerVersion"
+
+    implementation "com.google.dagger:dagger-android:$rootProject.daggerVersion"
+    implementation "com.google.dagger:dagger-android-support:$rootProject.daggerVersion"
+    kapt "com.google.dagger:dagger-android-processor:$rootProject.daggerVersion"
+
+    // Dependencies for Architecture Component
+    implementation "androidx.room:room-runtime:$rootProject.roomVersion"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    kapt "androidx.room:room-compiler:$rootProject.roomVersion"
+    implementation "androidx.lifecycle:lifecycle-extensions:$rootProject.archLifecycleVersion"
+    kapt "androidx.lifecycle:lifecycle-compiler:$rootProject.archLifecycleVersion"
+
+    // Dependencies for Paging
+    implementation "androidx.paging:paging-runtime:$rootProject.pagingVersion"
+
+    // Dependencies for Glide
+    implementation("com.github.bumptech.glide:glide:$rootProject.glideVersion") {
+        exclude group: "androidx"
+    }
+    kapt "com.github.bumptech.glide:compiler:$rootProject.glideVersion"
+
+    // Dependencies for local unit tests
+    testImplementation "junit:junit:$rootProject.junitVersion"
+    testImplementation "org.hamcrest:hamcrest-all:$rootProject.hamcrestVersion"
+    testImplementation "org.mockito:mockito-core:$rootProject.mockitoVersion"
+    testImplementation "androidx.arch.core:core-testing:$rootProject.archLifecycleVersion"
+    testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:$rootProject.mockitoKotlinVersion"
+
+
+    // Dependencies for Android unit tests
+    androidTestImplementation "junit:junit:$rootProject.junitVersion"
+    androidTestImplementation "org.mockito:mockito-core:$rootProject.mockitoVersion"
+    androidTestImplementation "org.mockito:mockito-android:$rootProject.mockitoVersion"
+
+    // Android Testing Support Library's runner and rules
+    androidTestImplementation "androidx.test.ext:junit:$rootProject.androidXTestVersion"
+    androidTestImplementation "androidx.test:core:$rootProject.androidXTestVersion"
+    androidTestImplementation "androidx.test:rules:$rootProject.androidXTestVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$rootProject.espressoVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-contrib:$rootProject.espressoVersion"
+    androidTestImplementation "androidx.arch.core:core-testing:$rootProject.archLifecycleVersion"
+
+    // Dependencies for Idle Resource
+    implementation "androidx.test.espresso:espresso-idling-resource:$rootProject.idleResourceVersion"
+
+
+}
