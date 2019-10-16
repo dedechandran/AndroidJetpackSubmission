@@ -37,7 +37,7 @@ class MovieFragment : BaseFragment() {
         movieViewModel = activity?.run {
             ViewModelProviders.of(this)[MovieViewModel::class.java]
         }
-        
+
         movieAdapter.setData(movieViewModel?.loadMovies())
 
 
