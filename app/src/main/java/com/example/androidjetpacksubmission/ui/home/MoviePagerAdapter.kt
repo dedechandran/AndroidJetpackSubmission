@@ -3,8 +3,8 @@ package com.example.androidjetpacksubmission.ui.home
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.example.androidjetpacksubmission.fixtures.*
-import com.example.androidjetpacksubmission.ui.home.fragments.MovieFragment
-import com.example.androidjetpacksubmission.ui.home.fragments.TvShowFragment
+import com.example.androidjetpacksubmission.ui.home.fragments.movie.MovieFragment
+import com.example.androidjetpacksubmission.ui.home.fragments.tvshow.TvShowFragment
 
 class MoviePagerAdapter(fm: FragmentManager) :
     FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {

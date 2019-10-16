@@ -7,4 +7,7 @@
 
     <dimen name="img_item_size_width">140dp</dimen>
     <dimen name="img_item_size_height">200dp</dimen>
+
+    <dimen name="corner_radius_4dp">4dp</dimen>
+    <dimen name="corner_radius_8dp">8dp</dimen>
 </resources>

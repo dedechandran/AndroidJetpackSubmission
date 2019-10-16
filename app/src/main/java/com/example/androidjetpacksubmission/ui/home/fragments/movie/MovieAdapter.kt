@@ -1,4 +1,4 @@
-package com.example.androidjetpacksubmission.ui.home.fragments
+package com.example.androidjetpacksubmission.ui.home.fragments.movie
 
 import android.view.LayoutInflater
 import android.view.View
@@ -42,6 +42,7 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
             }
             containerView.movieTextTitle.text = item.movieTitle
             containerView.movieTextOverview.text = item.movieOverview
+            containerView.movieTextReleaseDate.text = item.movieReleaseDate
         }
     }
 
