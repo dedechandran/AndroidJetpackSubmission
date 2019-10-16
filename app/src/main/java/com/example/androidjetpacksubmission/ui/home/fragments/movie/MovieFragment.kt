@@ -1,15 +1,13 @@
-package com.example.androidjetpacksubmission.ui.home.fragments
+package com.example.androidjetpacksubmission.ui.home.fragments.movie
 
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.androidjetpacksubmission.R
 import com.example.androidjetpacksubmission.base.BaseFragment
 import com.example.androidjetpacksubmission.viewmodels.MovieViewModel
@@ -35,7 +33,7 @@ class MovieFragment : BaseFragment() {
         }
 
         movieViewModel = activity?.run {
-            ViewModelProviders.of(this)[MovieViewModel::class.java]
+            ViewModelProviders.of(this,viewModelFactory)[MovieViewModel::class.java]
         }
 
         movieAdapter.setData(movieViewModel?.loadMovies())

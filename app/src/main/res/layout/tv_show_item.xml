@@ -2,7 +2,7 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/movieCardContainer"
+    android:id="@+id/tvShowCardContainer"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/margin_8dp"
@@ -14,52 +14,52 @@
         android:padding="@dimen/padding_8dp">
 
         <ImageView
-            android:id="@+id/movieImage"
+            android:id="@+id/tvShowImage"
             android:layout_width="@dimen/img_item_size_width"
             android:layout_height="@dimen/img_item_size_height"
             android:layout_marginEnd="8dp"
-            android:contentDescription="@string/movie_image_description"
-            app:layout_constraintEnd_toStartOf="@+id/movieTextReleaseDate"
+            android:contentDescription="@string/tv_show_image_description"
+            app:layout_constraintEnd_toStartOf="@+id/tvShowTextReleaseDate"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:src="@drawable/tv_poster_the_walking_dead" />
 
 
         <TextView
-            android:id="@+id/movieTextReleaseDate"
+            android:id="@+id/tvShowTextReleaseDate"
             style="@style/TextAppearance.MaterialComponents.Overline"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/movieImage"
-            app:layout_constraintTop_toTopOf="@id/movieImage"
+            app:layout_constraintStart_toEndOf="@id/tvShowImage"
+            app:layout_constraintTop_toTopOf="@id/tvShowImage"
             tools:text="Release Date" />
 
         <TextView
-            android:id="@+id/movieTextTitle"
+            android:id="@+id/tvShowTextName"
             style="@style/TextAppearance.MaterialComponents.Headline5"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:maxLines="2"
-            app:layout_constraintEnd_toEndOf="@id/movieTextReleaseDate"
-            app:layout_constraintStart_toStartOf="@id/movieTextReleaseDate"
-            app:layout_constraintTop_toBottomOf="@id/movieTextReleaseDate"
+            app:layout_constraintEnd_toEndOf="@id/tvShowTextReleaseDate"
+            app:layout_constraintStart_toStartOf="@id/tvShowTextReleaseDate"
+            app:layout_constraintTop_toBottomOf="@id/tvShowTextReleaseDate"
             tools:text="Title" />
 
 
         <TextView
-            android:id="@+id/movieTextOverview"
+            android:id="@+id/tvShowTextOverview"
             style="@style/TextAppearance.MaterialComponents.Body2"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:ellipsize="end"
             android:maxLines="7"
             android:textAlignment="textStart"
-            app:layout_constraintBottom_toBottomOf="@id/movieImage"
-            app:layout_constraintEnd_toEndOf="@id/movieTextTitle"
-            app:layout_constraintStart_toStartOf="@id/movieTextTitle"
-            app:layout_constraintTop_toBottomOf="@id/movieTextTitle"
+            app:layout_constraintBottom_toBottomOf="@id/tvShowImage"
+            app:layout_constraintEnd_toEndOf="@id/tvShowTextName"
+            app:layout_constraintStart_toStartOf="@id/tvShowTextName"
+            app:layout_constraintTop_toBottomOf="@id/tvShowTextName"
             tools:text="Overview" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
