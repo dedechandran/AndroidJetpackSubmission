@@ -10,7 +10,7 @@ import com.example.androidjetpacksubmission.domain.Movie
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.movie_item.view.*
 
-class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
+class MovieAdapter(private val listener: (Movie) -> Unit) : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
     private val data = mutableListOf<Movie>()
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -31,12 +31,15 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
     override fun getItemCount() = data.size
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
-        holder.bindItem(data[position])
+        holder.bindItem(data[position],listener)
     }
 
     inner class MovieViewHolder(override val containerView: View) :
         RecyclerView.ViewHolder(containerView), LayoutContainer {
-        fun bindItem(item: Movie) {
+        fun bindItem(item: Movie,listener: (Movie) -> Unit) {
+            containerView.movieCardContainer.setOnClickListener {
+                listener(item)
+            }
             containerView.movieImage.apply {
                 Glide.with(itemView).load(item.moviePoster).into(this)
             }

@@ -1,6 +1,7 @@
 package com.example.androidjetpacksubmission.ui.home.fragments.movie
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,8 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.androidjetpacksubmission.R
 import com.example.androidjetpacksubmission.base.BaseFragment
+import com.example.androidjetpacksubmission.fixtures.EXTRA_MOVIE_ID
+import com.example.androidjetpacksubmission.ui.MovieDetailActivity
 import com.example.androidjetpacksubmission.viewmodels.MovieViewModel
 import kotlinx.android.synthetic.main.fragment_movie.view.*
 import javax.inject.Inject
@@ -25,7 +28,12 @@ class MovieFragment : BaseFragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_movie, container, false)
-        movieAdapter = MovieAdapter()
+        movieAdapter = MovieAdapter{
+            Intent(context,MovieDetailActivity::class.java).run {
+                this.putExtra(EXTRA_MOVIE_ID,it.movieId)
+                startActivity(this)
+            }
+        }
 
         view.movieRecyclerView.apply {
             layoutManager = LinearLayoutManager(context)

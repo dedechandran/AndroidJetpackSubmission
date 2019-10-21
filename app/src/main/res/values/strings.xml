@@ -1,6 +1,11 @@
 <resources>
     <string name="app_name">Movie Catalogue</string>
     <string name="movie_image_description">Movie Image</string>
-    <string name="tv_show_image_description">Tv Show Image</string>
+    <string name="detail_duration_label">Duration</string>
+    <string name="detail_language_label">Language</string>
+    <string name="detail_overview_label">Overview</string>
+    <string name="detail_budget_label">Budget</string>
+    <string name="detail_revenue_label">Revenue</string>
+    <string name="movie_detail_title">Movie Detail</string>
 
 </resources>

@@ -2,7 +2,6 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/tvShowCardContainer"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/margin_8dp"
@@ -13,16 +12,24 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/padding_8dp">
 
-        <ImageView
-            android:id="@+id/tvShowImage"
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/tvShowImageContainer"
             android:layout_width="@dimen/img_item_size_width"
             android:layout_height="@dimen/img_item_size_height"
             android:layout_marginEnd="8dp"
-            android:contentDescription="@string/tv_show_image_description"
+            app:cardCornerRadius="@dimen/corner_radius_4dp"
             app:layout_constraintEnd_toStartOf="@+id/tvShowTextReleaseDate"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:src="@drawable/tv_poster_the_walking_dead" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/tvShowImage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/movie_image_description"
+                android:scaleType="centerCrop"
+                tools:src="@drawable/tv_poster_the_walking_dead" />
+        </com.google.android.material.card.MaterialCardView>
 
 
         <TextView
@@ -30,9 +37,10 @@
             style="@style/TextAppearance.MaterialComponents.Overline"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/tvShowTextName"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/tvShowImage"
-            app:layout_constraintTop_toTopOf="@id/tvShowImage"
+            app:layout_constraintStart_toEndOf="@id/tvShowImageContainer"
+            app:layout_constraintTop_toTopOf="@id/tvShowImageContainer"
             tools:text="Release Date" />
 
         <TextView
@@ -42,6 +50,7 @@
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:maxLines="2"
+            app:layout_constraintBottom_toTopOf="@id/tvShowTextOverview"
             app:layout_constraintEnd_toEndOf="@id/tvShowTextReleaseDate"
             app:layout_constraintStart_toStartOf="@id/tvShowTextReleaseDate"
             app:layout_constraintTop_toBottomOf="@id/tvShowTextReleaseDate"
@@ -56,7 +65,7 @@
             android:ellipsize="end"
             android:maxLines="7"
             android:textAlignment="textStart"
-            app:layout_constraintBottom_toBottomOf="@id/tvShowImage"
+            app:layout_constraintBottom_toBottomOf="@id/tvShowImageContainer"
             app:layout_constraintEnd_toEndOf="@id/tvShowTextName"
             app:layout_constraintStart_toStartOf="@id/tvShowTextName"
             app:layout_constraintTop_toBottomOf="@id/tvShowTextName"

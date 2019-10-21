@@ -11,4 +11,6 @@ open class MovieViewModel constructor(dummyData: DummyData) : ViewModel() {
     }
 
     fun loadMovies() = movies
+
+    fun getMovieDetail(movieId: Short) = movies[movieId.toInt() - 1]
 }

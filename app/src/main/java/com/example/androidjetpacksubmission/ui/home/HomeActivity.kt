@@ -11,18 +11,12 @@ import kotlinx.android.synthetic.main.activity_home.*
 import javax.inject.Inject
 
 class HomeActivity : BaseActivity() {
-    @Inject
-    lateinit var viewModelFactory: ViewModelProvider.Factory
-
-    private lateinit var movieViewModel : MovieViewModel
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
         mainViewPager.adapter =
             MoviePagerAdapter(supportFragmentManager)
         mainTabMovie.setupWithViewPager(mainViewPager)
-        movieViewModel = ViewModelProviders.of(this,viewModelFactory).get(MovieViewModel::class.java)
-        Log.d("MAINACTIVITY",movieViewModel.loadMovies().toString())
+        
     }
 }
