@@ -1,16 +1,12 @@
 package com.example.androidjetpacksubmission.utils
 
 import android.content.res.Resources
-import android.content.res.TypedArray
-import android.util.Log
 import com.example.androidjetpacksubmission.R
 import com.example.androidjetpacksubmission.domain.Movie
 import com.example.androidjetpacksubmission.domain.TvShow
 import com.example.androidjetpacksubmission.fixtures.*
-import java.lang.reflect.Field
 import java.text.NumberFormat
 import javax.inject.Inject
-import kotlin.reflect.KClass
 
 class DummyData @Inject constructor(private val resources: Resources) {
     fun getMovieList(): List<Movie> {
@@ -52,24 +48,25 @@ class DummyData @Inject constructor(private val resources: Resources) {
         val res = R.array::class.java
         var allTaken = false
         do {
-            val field = res.getField("movie_${counter}")
-            val movie = resources.obtainTypedArray(field.getInt(null))
+            val field = res.getField("tv_show_${counter}")
+            val tvShow = resources.obtainTypedArray(field.getInt(null))
             tvShows.add(
                 TvShow(
-                    tvShowId = movie.getInt(MOVIE_ID_INDEX, 0).toShort(),
-                    tvShowTitle = movie.getString(MOVIE_TITLE_INDEX)!!,
-                    tvShowPoster = movie.getResourceId(MOVIE_POSTER_INDEX, 0),
-                    tvShowOverview = movie.getString(MOVIE_DESCRIPTION_INDEX)!!,
-                    tvShowReleaseDate = movie.getString(MOVIE_RELEASE_DATE_INDEX)!!,
-                    tvShowLanguage = movie.getString(MOVIE_LANGUAGE_INDEX)!!,
-                    tvShowDuration = movie.getString(MOVIE_DURATION_INDEX)!!,
-                    tvShowGenres = movie.getString(MOVIE_GENRES_INDEX)!!.split(';')
+                    tvShowId = tvShow.getInt(TV_SHOW_ID_INDEX, 0).toShort(),
+                    tvShowTitle = tvShow.getString(TV_SHOW_TITLE_INDEX)!!,
+                    tvShowPoster = tvShow.getResourceId(TV_SHOW_POSTER_INDEX, 0),
+                    tvShowOverview = tvShow.getString(TV_SHOW_DESCRIPTION_INDEX)!!,
+                    tvShowReleaseDate = tvShow.getString(TV_SHOW_RELEASE_DATE_INDEX)!!,
+                    tvShowLanguage = tvShow.getString(TV_SHOW_LANGUAGE_INDEX)!!,
+                    tvShowDuration = tvShow.getString(TV_SHOW_DURATION_INDEX)!!,
+                    tvShowGenres = tvShow.getString(TV_SHOW_GENRES_INDEX)!!.split(';'),
+                    tvShowType = tvShow.getString(TV_SHOW_TYPE_INDEX)!!
                 )
             )
             if (counter == AVAILABLE_TV_SHOWS) {
                 allTaken = true
             }
-            movie.recycle()
+            tvShow.recycle()
             counter++
         } while (!allTaken)
         return tvShows

@@ -10,7 +10,7 @@ import com.example.androidjetpacksubmission.domain.TvShow
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.tv_show_item.view.*
 
-class TvShowAdapter : RecyclerView.Adapter<TvShowAdapter.TvShowViewHolder>() {
+class TvShowAdapter(private val listener: (TvShow) -> Unit) : RecyclerView.Adapter<TvShowAdapter.TvShowViewHolder>() {
     private val data = mutableListOf<TvShow>()
 
     fun setData(data: List<TvShow>?) {
@@ -30,17 +30,20 @@ class TvShowAdapter : RecyclerView.Adapter<TvShowAdapter.TvShowViewHolder>() {
     override fun getItemCount() = data.size
 
     override fun onBindViewHolder(holder: TvShowViewHolder, position: Int) {
-        holder.bind(data[position])
+        holder.bind(data[position],listener)
     }
 
 
     inner class TvShowViewHolder(override val containerView: View) :
         RecyclerView.ViewHolder(containerView), LayoutContainer {
-        fun bind(item: TvShow) {
+        fun bind(item: TvShow,listener: (TvShow) -> Unit) {
+            containerView.tvShowCardContainer.setOnClickListener {
+                listener(item)
+            }
             containerView.tvShowImage.apply {
                 Glide.with(itemView).load(item.tvShowPoster).into(this)
             }
-            containerView.tvShowTextName.text = item.tvShowName
+            containerView.tvShowTextName.text = item.tvShowTitle
             containerView.tvShowTextOverview.text = item.tvShowOverview
             containerView.tvShowTextReleaseDate.text = item.tvShowReleaseDate
         }

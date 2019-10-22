@@ -12,4 +12,4 @@ const val MOVIE_BUDGET_INDEX = 8
 const val MOVIE_REVENUE_INDEX = 9
 
 const val EXTRA_MOVIE_ID = "extra_movie_id"
-const val AVAILABLE_MOVIE = 18
+const val AVAILABLE_MOVIE = 17

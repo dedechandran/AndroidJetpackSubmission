@@ -13,6 +13,9 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
+            android:name=".ui.TvShowDetailActivity"
+            android:parentActivityName=".ui.home.HomeActivity" />
+        <activity
             android:name=".ui.MovieDetailActivity"
             android:parentActivityName=".ui.home.HomeActivity" />
         <activity

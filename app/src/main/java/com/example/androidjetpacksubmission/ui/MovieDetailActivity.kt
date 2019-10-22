@@ -1,23 +1,15 @@
 package com.example.androidjetpacksubmission.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Layout
 import android.view.MenuItem
-import androidx.cardview.widget.CardView
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
 import com.example.androidjetpacksubmission.R
 import com.example.androidjetpacksubmission.base.BaseActivity
 import com.example.androidjetpacksubmission.fixtures.EXTRA_MOVIE_ID
 import com.example.androidjetpacksubmission.viewmodels.MovieViewModel
-import com.example.androidjetpacksubmission.viewmodels.ViewModelFactory
-import com.google.android.material.bottomsheet.BottomSheetBehavior
 import kotlinx.android.synthetic.main.activity_movie_detail.*
 import javax.inject.Inject
 
@@ -31,9 +23,9 @@ class MovieDetailActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_movie_detail)
-        supportActionBar.apply {
-            this?.setDisplayHomeAsUpEnabled(true)
-            this?.title = resources.getString(R.string.movie_detail_title)
+        supportActionBar?.apply {
+            setDisplayHomeAsUpEnabled(true)
+            title = resources.getString(R.string.movie_detail_title)
         }
 
         genresAdapter = GenresAdapter()
@@ -58,16 +50,16 @@ class MovieDetailActivity : BaseActivity() {
     
     private fun showMovieDetail(movieId : Short){
         val movie = movieViewModel?.getMovieDetail(movieId)
-        detailTextMovieTitle.text = movie?.movieTitle
-        detailTextMovieDate.text = movie?.movieReleaseDate
+        detailTextTvShowTitle.text = movie?.movieTitle
+        detailTextTvShowDate.text = movie?.movieReleaseDate
         Glide.with(this)
             .load(movie?.moviePoster)
-            .into(detailMovieImage)
-        detailTextMovieOverview.text = movie?.movieOverview
-        detailTextMovieDuration.text = movie?.movieDuration
-        detailTextMovieLanguage.text = movie?.movieLanguage
-        detailTextMovieBudget.text = movie?.movieBudget
-        detailTextMovieRevenue.text = movie?.movieRevenue
+            .into(detailTvShowImage)
+        detailTextTvShowOverview.text = movie?.movieOverview
+        detailTextTvShowDuration.text = movie?.movieDuration
+        detailTextTvShowLanguage.text = movie?.movieLanguage
+        detailTextTvShowType.text = movie?.movieBudget
+        detailTextTvShowStatus.text = movie?.movieRevenue
         genresAdapter.setData(movie?.movieGenres!!)
     }
 }
