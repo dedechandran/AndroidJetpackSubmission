@@ -2,9 +2,9 @@ package com.example.androidjetpacksubmission.ui
 
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.androidjetpacksubmission.R
 import com.example.androidjetpacksubmission.base.BaseActivity
@@ -17,7 +17,6 @@ class MovieDetailActivity : BaseActivity() {
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
 
-    private lateinit var genresAdapter: GenresAdapter
     private var movieViewModel: MovieViewModel? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,13 +25,6 @@ class MovieDetailActivity : BaseActivity() {
         supportActionBar?.apply {
             setDisplayHomeAsUpEnabled(true)
             title = resources.getString(R.string.movie_detail_title)
-        }
-
-        genresAdapter = GenresAdapter()
-
-        detailRvGenres.apply {
-            layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
-            adapter = genresAdapter
         }
 
         movieViewModel = ViewModelProviders.of(this,viewModelFactory)[MovieViewModel::class.java]
@@ -60,6 +52,10 @@ class MovieDetailActivity : BaseActivity() {
         detailTextTvShowLanguage.text = movie?.movieLanguage
         detailTextTvShowType.text = movie?.movieBudget
         detailTextTvShowStatus.text = movie?.movieRevenue
-        genresAdapter.setData(movie?.movieGenres!!)
+        movie?.movieGenres?.forEach {
+            val genreView = layoutInflater.inflate(R.layout.genre_item,null) as TextView
+            genreView.text = it
+            detailMovieGenresContainer.addView(genreView)
+        }
     }
 }

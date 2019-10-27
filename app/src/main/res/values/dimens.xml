@@ -9,4 +9,7 @@
 
     <dimen name="corner_radius_4dp">4dp</dimen>
     <dimen name="corner_radius_72dp">72dp</dimen>
+
+    <dimen name="divider_size_width">8dp</dimen>
+    <dimen name="divider_size_height">8dp</dimen>
 </resources>

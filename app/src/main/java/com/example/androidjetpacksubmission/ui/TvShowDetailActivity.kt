@@ -2,9 +2,9 @@ package com.example.androidjetpacksubmission.ui
 
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.androidjetpacksubmission.R
 import com.example.androidjetpacksubmission.base.BaseActivity
@@ -17,7 +17,6 @@ class TvShowDetailActivity : BaseActivity() {
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
 
-    private lateinit var genresAdapter: GenresAdapter
     private var tvShowViewModel: TvShowViewModel? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,27 +27,20 @@ class TvShowDetailActivity : BaseActivity() {
             title = resources.getString(R.string.tv_show_detail_title)
         }
 
-        genresAdapter = GenresAdapter()
+        tvShowViewModel = ViewModelProviders.of(this, viewModelFactory)[TvShowViewModel::class.java]
 
-        detailRvGenres.apply {
-            layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
-            adapter = genresAdapter
-        }
-
-        tvShowViewModel = ViewModelProviders.of(this,viewModelFactory)[TvShowViewModel::class.java]
-
-        val tvShowId = intent.getShortExtra(EXTRA_TV_SHOW_ID,0)
+        val tvShowId = intent.getShortExtra(EXTRA_TV_SHOW_ID, 0)
         showTvShowDetail(tvShowId)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if(item.itemId == android.R.id.home){
+        if (item.itemId == android.R.id.home) {
             finish()
         }
         return super.onOptionsItemSelected(item)
     }
 
-    private fun showTvShowDetail(tvShowId: Short){
+    private fun showTvShowDetail(tvShowId: Short) {
         val tvShow = tvShowViewModel?.getTvShowDetail(tvShowId)
 
         detailTextTvShowTitle.text = tvShow?.tvShowTitle
@@ -61,6 +53,11 @@ class TvShowDetailActivity : BaseActivity() {
         detailTextTvShowLanguage.text = tvShow?.tvShowLanguage
         detailTextTvShowType.text = tvShow?.tvShowType
         detailTextTvShowStatus.text = "-"
-        genresAdapter.setData(tvShow?.tvShowGenres!!)
+        tvShow?.tvShowGenres?.forEach {
+            val genreView = layoutInflater.inflate(R.layout.genre_item, null) as TextView
+            genreView.text = it
+            detailTvShowGenresContainer.addView(genreView)
+        }
+
     }
 }

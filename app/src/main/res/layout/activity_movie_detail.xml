@@ -7,10 +7,10 @@
     android:padding="@dimen/padding_8dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/contentSection1"
+        android:id="@+id/detailMoviecontentSection1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/contentSection2"
+        app:layout_constraintBottom_toTopOf="@id/detailMoviecontentSection2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -37,7 +37,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_8dp"
-            android:text="The Walking Deaddddddddddddddd"
+            tools:text="The Walking Deaddddddddddddddd"
             app:layout_constraintBottom_toTopOf="@id/detailTextTvShowDate"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/detailTvShowImageContainer"
@@ -47,7 +47,7 @@
             android:id="@+id/detailTextTvShowDate"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="October 3, 2018"
+            tools:text="October 3, 2018"
             app:layout_constraintBottom_toTopOf="@id/detailTextTvShowDurationLabel"
             app:layout_constraintEnd_toEndOf="@id/detailTextTvShowTitle"
             app:layout_constraintStart_toStartOf="@id/detailTextTvShowTitle"
@@ -81,7 +81,7 @@
             style="@style/TextAppearance.MaterialComponents.Body2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="2h 15m"
+            tools:text="2h 15m"
             app:layout_constraintBottom_toTopOf="@id/detailTextTvShowTypeLabel"
             app:layout_constraintEnd_toStartOf="@id/detailTextTvShowLanguage"
             app:layout_constraintStart_toEndOf="@id/detailTextTvShowDate"
@@ -93,7 +93,7 @@
             style="@style/TextAppearance.MaterialComponents.Body2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="English"
+            tools:text="English"
             app:layout_constraintBottom_toBottomOf="@id/detailTextTvShowDuration"
             app:layout_constraintEnd_toEndOf="@id/detailTextTvShowLanguageLabel"
             app:layout_constraintStart_toEndOf="@id/detailTextTvShowDuration"
@@ -128,7 +128,7 @@
             style="@style/TextAppearance.MaterialComponents.Body2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="$300,000,000.00"
+            tools:text="$300,000,000.00"
             app:layout_constraintBottom_toBottomOf="@id/detailTvShowImageContainer"
             app:layout_constraintEnd_toStartOf="@id/detailTextTvShowStatus"
             app:layout_constraintStart_toStartOf="@id/detailTextTvShowTypeLabel"
@@ -139,7 +139,7 @@
             style="@style/TextAppearance.MaterialComponents.Body2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="$2,046,239,637.00"
+            tools:text="$2,046,239,637.00"
             app:layout_constraintBottom_toBottomOf="@id/detailTextTvShowType"
             app:layout_constraintEnd_toEndOf="@id/detailTextTvShowStatusLabel"
             app:layout_constraintStart_toEndOf="@id/detailTextTvShowType"
@@ -147,26 +147,31 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/contentSection2"
+        android:id="@+id/detailMoviecontentSection2"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="@dimen/margin_8dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/contentSection1"
-        app:layout_constraintStart_toStartOf="@id/contentSection1"
-        app:layout_constraintTop_toBottomOf="@id/contentSection1">
+        app:layout_constraintEnd_toEndOf="@id/detailMoviecontentSection1"
+        app:layout_constraintStart_toStartOf="@id/detailMoviecontentSection1"
+        app:layout_constraintTop_toBottomOf="@id/detailMoviecontentSection1">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Genres" />
+            android:text="@string/detail_genres_label" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/detailRvGenres"
+        <com.google.android.flexbox.FlexboxLayout
+            android:id="@+id/detailMovieGenresContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_8dp" />
+            android:layout_marginTop="@dimen/margin_8dp"
+            app:dividerDrawable="@drawable/divider"
+            app:flexWrap="wrap"
+            app:showDivider="middle">
+
+        </com.google.android.flexbox.FlexboxLayout>
 
         <TextView
             android:layout_width="match_parent"
@@ -181,7 +186,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_8dp"
             android:layout_marginBottom="@dimen/margin_8dp"
-            android:text="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" />
+            tools:text="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 

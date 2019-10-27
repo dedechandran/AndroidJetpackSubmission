@@ -1,8 +1,6 @@
 package com.example.androidjetpacksubmission.di
 
-import android.app.Application
 import com.example.androidjetpacksubmission.AppCore
-import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule
 import dagger.android.AndroidInjector
