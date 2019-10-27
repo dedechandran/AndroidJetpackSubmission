@@ -11,64 +11,67 @@ import javax.inject.Inject
 class DummyData @Inject constructor(private val resources: Resources) {
     fun getMovieList(): List<Movie> {
         val currency = NumberFormat.getCurrencyInstance()
+        currency.minimumFractionDigits = 0
+
         val movies = mutableListOf<Movie>()
-        var counter = 1
-        val res = R.array::class.java
-        var allTaken = false
-        do {
-            val field = res.getField("movie_${counter}")
-            val movie = resources.obtainTypedArray(field.getInt(null))
+        val moviePosters = resources.obtainTypedArray(R.array.movie_posters)
+        val movieTitles = resources.getStringArray(R.array.movie_titles)
+        val movieOverviews = resources.getStringArray(R.array.movie_overviews)
+        val movieReleaseDates = resources.getStringArray(R.array.movie_release_dates)
+        val movieLanguages = resources.getStringArray(R.array.movie_languages)
+        val movieDurations = resources.getStringArray(R.array.movie_durations)
+        val movieGenres = resources.getStringArray(R.array.movie_genres)
+        val movieBudgets = resources.getStringArray(R.array.movie_budgets)
+        val movieRevenues = resources.getStringArray(R.array.movie_revenues)
+
+        for((index,movie) in movieTitles.withIndex()){
             movies.add(
                 Movie(
-                    movieId = movie.getInt(MOVIE_ID_INDEX, 0).toShort(),
-                    movieTitle = movie.getString(MOVIE_TITLE_INDEX)!!,
-                    moviePoster = movie.getResourceId(MOVIE_POSTER_INDEX, 0),
-                    movieOverview = movie.getString(MOVIE_DESCRIPTION_INDEX)!!,
-                    movieReleaseDate = movie.getString(MOVIE_RELEASE_DATE_INDEX)!!,
-                    movieLanguage = movie.getString(MOVIE_LANGUAGE_INDEX)!!,
-                    movieDuration = movie.getString(MOVIE_DURATION_INDEX)!!,
-                    movieGenres = movie.getString(MOVIE_GENRES_INDEX)!!.split(';'),
-                    movieBudget = currency.format(movie.getInt(MOVIE_BUDGET_INDEX,0).toLong()),
-                    movieRevenue = currency.format(movie.getInt(MOVIE_REVENUE_INDEX,0).toLong())
+                    movieId = index,
+                    movieTitle = movie,
+                    moviePoster = moviePosters.getResourceId(index,0),
+                    movieOverview = movieOverviews[index],
+                    movieReleaseDate = movieReleaseDates[index],
+                    movieLanguage = movieLanguages[index],
+                    movieDuration = movieDurations[index],
+                    movieGenres = movieGenres[index].split(';'),
+                    movieBudget = currency.format(movieBudgets[index].toLong()),
+                    movieRevenue = currency.format(movieRevenues[index].toLong())
                 )
             )
-            if (counter == AVAILABLE_MOVIE) {
-                allTaken = true
-            }
-            movie.recycle()
-            counter++
-        } while (!allTaken)
+        }
 
+        moviePosters.recycle()
         return movies
     }
 
     fun getTvShowList(): List<TvShow> {
         val tvShows = mutableListOf<TvShow>()
-        var counter = 1
-        val res = R.array::class.java
-        var allTaken = false
-        do {
-            val field = res.getField("tv_show_${counter}")
-            val tvShow = resources.obtainTypedArray(field.getInt(null))
+        val tvShowPosters = resources.obtainTypedArray(R.array.tv_show_posters)
+        val tvShowTitles = resources.getStringArray(R.array.tv_show_titles)
+        val tvShowOverviews = resources.getStringArray(R.array.tv_show_overviews)
+        val tvShowReleaseDates = resources.getStringArray(R.array.tv_show_release_dates)
+        val tvShowLanguages = resources.getStringArray(R.array.tv_show_languages)
+        val tvShowDurations = resources.getStringArray(R.array.tv_show_durations)
+        val tvShowGenres = resources.getStringArray(R.array.tv_show_genres)
+        val tvShowTypes = resources.getStringArray(R.array.tv_show_types)
+
+        for((index,tvShow) in tvShowTitles.withIndex()){
             tvShows.add(
                 TvShow(
-                    tvShowId = tvShow.getInt(TV_SHOW_ID_INDEX, 0).toShort(),
-                    tvShowTitle = tvShow.getString(TV_SHOW_TITLE_INDEX)!!,
-                    tvShowPoster = tvShow.getResourceId(TV_SHOW_POSTER_INDEX, 0),
-                    tvShowOverview = tvShow.getString(TV_SHOW_DESCRIPTION_INDEX)!!,
-                    tvShowReleaseDate = tvShow.getString(TV_SHOW_RELEASE_DATE_INDEX)!!,
-                    tvShowLanguage = tvShow.getString(TV_SHOW_LANGUAGE_INDEX)!!,
-                    tvShowDuration = tvShow.getString(TV_SHOW_DURATION_INDEX)!!,
-                    tvShowGenres = tvShow.getString(TV_SHOW_GENRES_INDEX)!!.split(';'),
-                    tvShowType = tvShow.getString(TV_SHOW_TYPE_INDEX)!!
+                    tvShowId = index,
+                    tvShowTitle = tvShow,
+                    tvShowPoster = tvShowPosters.getResourceId(index,0),
+                    tvShowOverview = tvShowOverviews[index],
+                    tvShowReleaseDate = tvShowReleaseDates[index],
+                    tvShowLanguage = tvShowLanguages[index],
+                    tvShowDuration = tvShowDurations[index],
+                    tvShowGenres = tvShowGenres[index].split(';'),
+                    tvShowType = tvShowTypes[index]
                 )
             )
-            if (counter == AVAILABLE_TV_SHOWS) {
-                allTaken = true
-            }
-            tvShow.recycle()
-            counter++
-        } while (!allTaken)
+        }
+        tvShowPosters.recycle()
         return tvShows
     }
 

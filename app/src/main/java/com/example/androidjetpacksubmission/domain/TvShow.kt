@@ -1,7 +1,7 @@
 package com.example.androidjetpacksubmission.domain
 
 data class TvShow(
-    val tvShowId: Short,
+    val tvShowId: Int,
     val tvShowTitle: String,
     val tvShowPoster: Int,
     val tvShowOverview: String,

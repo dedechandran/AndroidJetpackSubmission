@@ -1,7 +1,7 @@
 package com.example.androidjetpacksubmission.domain
 
 data class Movie(
-    val movieId: Short,
+    val movieId: Int,
     val movieTitle: String,
     val moviePoster: Int,
     val movieOverview: String,

@@ -12,5 +12,5 @@ class TvShowViewModel constructor(dummyData: DummyData) : ViewModel() {
 
     fun loadTvShows() = tvShows
 
-    fun getTvShowDetail(tvShowId : Short) = tvShows[tvShowId.toInt() - 1]
+    fun getTvShowDetail(tvShowId : Int) = tvShows[tvShowId]
 }

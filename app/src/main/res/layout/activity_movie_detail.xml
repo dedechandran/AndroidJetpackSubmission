@@ -7,16 +7,16 @@
     android:padding="@dimen/padding_8dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/detailMoviecontentSection1"
+        android:id="@+id/detailMovieContentSection1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/detailMoviecontentSection2"
+        app:layout_constraintBottom_toTopOf="@id/detailMovieContentSection2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.card.MaterialCardView
-            android:id="@+id/detailTvShowImageContainer"
+            android:id="@+id/detailMovieImageContainer"
             android:layout_width="@dimen/img_item_size_width"
             android:layout_height="@dimen/img_item_size_height"
             app:cardCornerRadius="@dimen/corner_radius_4dp"
@@ -24,7 +24,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
-                android:id="@+id/detailTvShowImage"
+                android:id="@+id/detailMovieImage"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
@@ -32,130 +32,130 @@
         </com.google.android.material.card.MaterialCardView>
 
         <TextView
-            android:id="@+id/detailTextTvShowTitle"
+            android:id="@+id/detailTextMovieTitle"
             style="@style/TextAppearance.MaterialComponents.Headline5"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_8dp"
             tools:text="The Walking Deaddddddddddddddd"
-            app:layout_constraintBottom_toTopOf="@id/detailTextTvShowDate"
+            app:layout_constraintBottom_toTopOf="@id/detailTextMovieDate"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/detailTvShowImageContainer"
-            app:layout_constraintTop_toTopOf="@id/detailTvShowImageContainer" />
+            app:layout_constraintStart_toEndOf="@id/detailMovieImageContainer"
+            app:layout_constraintTop_toTopOf="@id/detailMovieImageContainer" />
 
         <TextView
-            android:id="@+id/detailTextTvShowDate"
+            android:id="@+id/detailTextMovieDate"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             tools:text="October 3, 2018"
-            app:layout_constraintBottom_toTopOf="@id/detailTextTvShowDurationLabel"
-            app:layout_constraintEnd_toEndOf="@id/detailTextTvShowTitle"
-            app:layout_constraintStart_toStartOf="@id/detailTextTvShowTitle"
-            app:layout_constraintTop_toBottomOf="@id/detailTextTvShowTitle" />
+            app:layout_constraintBottom_toTopOf="@id/detailTextMovieDurationLabel"
+            app:layout_constraintEnd_toEndOf="@id/detailTextMovieTitle"
+            app:layout_constraintStart_toStartOf="@id/detailTextMovieTitle"
+            app:layout_constraintTop_toBottomOf="@id/detailTextMovieTitle" />
 
         <TextView
-            android:id="@+id/detailTextTvShowDurationLabel"
+            android:id="@+id/detailTextMovieDurationLabel"
             style="@style/TextAppearance.MaterialComponents.Caption"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_8dp"
             android:text="@string/detail_duration_label"
-            app:layout_constraintBottom_toTopOf="@id/detailTextTvShowDuration"
-            app:layout_constraintEnd_toStartOf="@id/detailTextTvShowLanguageLabel"
-            app:layout_constraintStart_toStartOf="@id/detailTextTvShowDate"
-            app:layout_constraintTop_toBottomOf="@id/detailTextTvShowDate" />
+            app:layout_constraintBottom_toTopOf="@id/detailTextMovieDuration"
+            app:layout_constraintEnd_toStartOf="@id/detailTextMovieLanguageLabel"
+            app:layout_constraintStart_toStartOf="@id/detailTextMovieDate"
+            app:layout_constraintTop_toBottomOf="@id/detailTextMovieDate" />
 
         <TextView
-            android:id="@+id/detailTextTvShowLanguageLabel"
+            android:id="@+id/detailTextMovieLanguageLabel"
             style="@style/TextAppearance.MaterialComponents.Caption"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/detail_language_label"
-            app:layout_constraintBottom_toBottomOf="@id/detailTextTvShowDurationLabel"
-            app:layout_constraintEnd_toEndOf="@id/detailTextTvShowDate"
-            app:layout_constraintStart_toEndOf="@id/detailTextTvShowDurationLabel"
-            app:layout_constraintTop_toTopOf="@id/detailTextTvShowDurationLabel" />
+            app:layout_constraintBottom_toBottomOf="@id/detailTextMovieDurationLabel"
+            app:layout_constraintEnd_toEndOf="@id/detailTextMovieDate"
+            app:layout_constraintStart_toEndOf="@id/detailTextMovieDurationLabel"
+            app:layout_constraintTop_toTopOf="@id/detailTextMovieDurationLabel" />
 
         <TextView
-            android:id="@+id/detailTextTvShowDuration"
+            android:id="@+id/detailTextMovieDuration"
             style="@style/TextAppearance.MaterialComponents.Body2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             tools:text="2h 15m"
-            app:layout_constraintBottom_toTopOf="@id/detailTextTvShowTypeLabel"
-            app:layout_constraintEnd_toStartOf="@id/detailTextTvShowLanguage"
-            app:layout_constraintStart_toEndOf="@id/detailTextTvShowDate"
-            app:layout_constraintStart_toStartOf="@id/detailTextTvShowDurationLabel"
-            app:layout_constraintTop_toBottomOf="@id/detailTextTvShowDurationLabel" />
+            app:layout_constraintBottom_toTopOf="@id/detailTextMovieBudgetLabel"
+            app:layout_constraintEnd_toStartOf="@id/detailTextMovieLanguage"
+            app:layout_constraintStart_toEndOf="@id/detailTextMovieDate"
+            app:layout_constraintStart_toStartOf="@id/detailTextMovieDurationLabel"
+            app:layout_constraintTop_toBottomOf="@id/detailTextMovieDurationLabel" />
 
         <TextView
-            android:id="@+id/detailTextTvShowLanguage"
+            android:id="@+id/detailTextMovieLanguage"
             style="@style/TextAppearance.MaterialComponents.Body2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             tools:text="English"
-            app:layout_constraintBottom_toBottomOf="@id/detailTextTvShowDuration"
-            app:layout_constraintEnd_toEndOf="@id/detailTextTvShowLanguageLabel"
-            app:layout_constraintStart_toEndOf="@id/detailTextTvShowDuration"
-            app:layout_constraintTop_toTopOf="@id/detailTextTvShowDuration" />
+            app:layout_constraintBottom_toBottomOf="@id/detailTextMovieDuration"
+            app:layout_constraintEnd_toEndOf="@id/detailTextMovieLanguageLabel"
+            app:layout_constraintStart_toEndOf="@id/detailTextMovieDuration"
+            app:layout_constraintTop_toTopOf="@id/detailTextMovieDuration" />
 
         <TextView
-            android:id="@+id/detailTextTvShowTypeLabel"
+            android:id="@+id/detailTextMovieBudgetLabel"
             style="@style/TextAppearance.MaterialComponents.Caption"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_8dp"
             android:text="@string/detail_budget_label"
-            app:layout_constraintBottom_toTopOf="@id/detailTextTvShowType"
-            app:layout_constraintEnd_toStartOf="@id/detailTextTvShowStatusLabel"
-            app:layout_constraintStart_toStartOf="@id/detailTextTvShowDuration"
-            app:layout_constraintTop_toBottomOf="@id/detailTextTvShowDuration" />
+            app:layout_constraintBottom_toTopOf="@id/detailTextMovieBudget"
+            app:layout_constraintEnd_toStartOf="@id/detailTextMovieStatusLabel"
+            app:layout_constraintStart_toStartOf="@id/detailTextMovieDuration"
+            app:layout_constraintTop_toBottomOf="@id/detailTextMovieDuration" />
 
         <TextView
-            android:id="@+id/detailTextTvShowStatusLabel"
+            android:id="@+id/detailTextMovieStatusLabel"
             style="@style/TextAppearance.MaterialComponents.Caption"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/detail_revenue_label"
-            app:layout_constraintBottom_toBottomOf="@id/detailTextTvShowTypeLabel"
-            app:layout_constraintEnd_toEndOf="@id/detailTextTvShowLanguage"
-            app:layout_constraintStart_toEndOf="@id/detailTextTvShowTypeLabel"
-            app:layout_constraintTop_toTopOf="@id/detailTextTvShowTypeLabel" />
+            app:layout_constraintBottom_toBottomOf="@id/detailTextMovieBudgetLabel"
+            app:layout_constraintEnd_toEndOf="@id/detailTextMovieLanguage"
+            app:layout_constraintStart_toEndOf="@id/detailTextMovieBudgetLabel"
+            app:layout_constraintTop_toTopOf="@id/detailTextMovieBudgetLabel" />
 
         <TextView
 
-            android:id="@+id/detailTextTvShowType"
+            android:id="@+id/detailTextMovieBudget"
             style="@style/TextAppearance.MaterialComponents.Body2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            tools:text="$300,000,000.00"
-            app:layout_constraintBottom_toBottomOf="@id/detailTvShowImageContainer"
-            app:layout_constraintEnd_toStartOf="@id/detailTextTvShowStatus"
-            app:layout_constraintStart_toStartOf="@id/detailTextTvShowTypeLabel"
-            app:layout_constraintTop_toBottomOf="@id/detailTextTvShowTypeLabel" />
+            app:layout_constraintBottom_toBottomOf="@id/detailMovieImageContainer"
+            app:layout_constraintEnd_toStartOf="@id/detailTextMovieStatus"
+            app:layout_constraintStart_toStartOf="@id/detailTextMovieBudgetLabel"
+            app:layout_constraintTop_toBottomOf="@id/detailTextMovieBudgetLabel"
+            tools:text="$300,000,000.00" />
 
         <TextView
-            android:id="@+id/detailTextTvShowStatus"
+            android:id="@+id/detailTextMovieStatus"
             style="@style/TextAppearance.MaterialComponents.Body2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             tools:text="$2,046,239,637.00"
-            app:layout_constraintBottom_toBottomOf="@id/detailTextTvShowType"
-            app:layout_constraintEnd_toEndOf="@id/detailTextTvShowStatusLabel"
-            app:layout_constraintStart_toEndOf="@id/detailTextTvShowType"
-            app:layout_constraintTop_toTopOf="@id/detailTextTvShowType" />
+            app:layout_constraintBottom_toBottomOf="@id/detailTextMovieBudget"
+            app:layout_constraintEnd_toEndOf="@id/detailTextMovieStatusLabel"
+            app:layout_constraintStart_toEndOf="@id/detailTextMovieBudget"
+            app:layout_constraintTop_toTopOf="@id/detailTextMovieBudget" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/detailMoviecontentSection2"
+        android:id="@+id/detailMovieContentSection2"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="@dimen/margin_8dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/detailMoviecontentSection1"
-        app:layout_constraintStart_toStartOf="@id/detailMoviecontentSection1"
-        app:layout_constraintTop_toBottomOf="@id/detailMoviecontentSection1">
+        app:layout_constraintEnd_toEndOf="@id/detailMovieContentSection1"
+        app:layout_constraintStart_toStartOf="@id/detailMovieContentSection1"
+        app:layout_constraintTop_toBottomOf="@id/detailMovieContentSection1">
 
         <TextView
             android:layout_width="match_parent"
@@ -180,7 +180,7 @@
             android:text="@string/detail_overview_label" />
 
         <TextView
-            android:id="@+id/detailTextTvShowOverview"
+            android:id="@+id/detailTextMovieOverview"
             style="@style/TextAppearance.MaterialComponents.Body2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

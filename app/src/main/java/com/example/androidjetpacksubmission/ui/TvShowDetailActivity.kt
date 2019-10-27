@@ -10,6 +10,7 @@ import com.example.androidjetpacksubmission.R
 import com.example.androidjetpacksubmission.base.BaseActivity
 import com.example.androidjetpacksubmission.fixtures.EXTRA_TV_SHOW_ID
 import com.example.androidjetpacksubmission.viewmodels.TvShowViewModel
+import com.google.android.flexbox.FlexboxLayout
 import kotlinx.android.synthetic.main.activity_tv_show_detail.*
 import javax.inject.Inject
 
@@ -29,7 +30,7 @@ class TvShowDetailActivity : BaseActivity() {
 
         tvShowViewModel = ViewModelProviders.of(this, viewModelFactory)[TvShowViewModel::class.java]
 
-        val tvShowId = intent.getShortExtra(EXTRA_TV_SHOW_ID, 0)
+        val tvShowId = intent.getIntExtra(EXTRA_TV_SHOW_ID, 0)
         showTvShowDetail(tvShowId)
     }
 
@@ -40,7 +41,7 @@ class TvShowDetailActivity : BaseActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-    private fun showTvShowDetail(tvShowId: Short) {
+    private fun showTvShowDetail(tvShowId: Int) {
         val tvShow = tvShowViewModel?.getTvShowDetail(tvShowId)
 
         detailTextTvShowTitle.text = tvShow?.tvShowTitle
@@ -53,11 +54,15 @@ class TvShowDetailActivity : BaseActivity() {
         detailTextTvShowLanguage.text = tvShow?.tvShowLanguage
         detailTextTvShowType.text = tvShow?.tvShowType
         detailTextTvShowStatus.text = "-"
-        tvShow?.tvShowGenres?.forEach {
-            val genreView = layoutInflater.inflate(R.layout.genre_item, null) as TextView
-            genreView.text = it
-            detailTvShowGenresContainer.addView(genreView)
-        }
+        showGenres(tvShow?.tvShowGenres!!)
 
+    }
+
+    private fun showGenres(genres: List<String>){
+        for(i in genres.indices){
+            val genreView = layoutInflater.inflate(R.layout.genre_item,detailTvShowGenresContainer) as FlexboxLayout
+            val genreText = genreView.getChildAt(i) as TextView
+            genreText.text = genres[i]
+        }
     }
 }

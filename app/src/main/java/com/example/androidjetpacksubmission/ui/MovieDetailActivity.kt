@@ -3,6 +3,7 @@ package com.example.androidjetpacksubmission.ui
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.TextView
+import androidx.appcompat.widget.LinearLayoutCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.bumptech.glide.Glide
@@ -10,7 +11,9 @@ import com.example.androidjetpacksubmission.R
 import com.example.androidjetpacksubmission.base.BaseActivity
 import com.example.androidjetpacksubmission.fixtures.EXTRA_MOVIE_ID
 import com.example.androidjetpacksubmission.viewmodels.MovieViewModel
+import com.google.android.flexbox.FlexboxLayout
 import kotlinx.android.synthetic.main.activity_movie_detail.*
+import kotlinx.android.synthetic.main.genre_item.*
 import javax.inject.Inject
 
 class MovieDetailActivity : BaseActivity() {
@@ -29,7 +32,7 @@ class MovieDetailActivity : BaseActivity() {
 
         movieViewModel = ViewModelProviders.of(this,viewModelFactory)[MovieViewModel::class.java]
 
-        val movieId = intent.getShortExtra(EXTRA_MOVIE_ID,0)
+        val movieId = intent.getIntExtra(EXTRA_MOVIE_ID,0)
         showMovieDetail(movieId)
     }
 
@@ -40,22 +43,27 @@ class MovieDetailActivity : BaseActivity() {
         return super.onOptionsItemSelected(item)
     }
     
-    private fun showMovieDetail(movieId : Short){
+    private fun showMovieDetail(movieId : Int){
         val movie = movieViewModel?.getMovieDetail(movieId)
-        detailTextTvShowTitle.text = movie?.movieTitle
-        detailTextTvShowDate.text = movie?.movieReleaseDate
+        detailTextMovieTitle.text = movie?.movieTitle
+        detailTextMovieDate.text = movie?.movieReleaseDate
         Glide.with(this)
             .load(movie?.moviePoster)
-            .into(detailTvShowImage)
-        detailTextTvShowOverview.text = movie?.movieOverview
-        detailTextTvShowDuration.text = movie?.movieDuration
-        detailTextTvShowLanguage.text = movie?.movieLanguage
-        detailTextTvShowType.text = movie?.movieBudget
-        detailTextTvShowStatus.text = movie?.movieRevenue
-        movie?.movieGenres?.forEach {
-            val genreView = layoutInflater.inflate(R.layout.genre_item,null) as TextView
-            genreView.text = it
-            detailMovieGenresContainer.addView(genreView)
+            .into(detailMovieImage)
+        detailTextMovieOverview.text = movie?.movieOverview
+        detailTextMovieDuration.text = movie?.movieDuration
+        detailTextMovieLanguage.text = movie?.movieLanguage
+        detailTextMovieBudget.text = movie?.movieBudget
+        detailTextMovieStatus.text = movie?.movieRevenue
+        showGenres(movie?.movieGenres!!)
+    }
+
+
+    private fun showGenres(genres: List<String>){
+        for(i in genres.indices){
+            val genreView = layoutInflater.inflate(R.layout.genre_item,detailMovieGenresContainer) as FlexboxLayout
+            val genreText = genreView.getChildAt(i) as TextView
+            genreText.text = genres[i]
         }
     }
 }
