@@ -107,12 +107,12 @@
             android:layout_marginTop="@dimen/margin_8dp"
             android:text="@string/detail_budget_label"
             app:layout_constraintBottom_toTopOf="@id/detailTextMovieBudget"
-            app:layout_constraintEnd_toStartOf="@id/detailTextMovieStatusLabel"
+            app:layout_constraintEnd_toStartOf="@id/detailTextMovieRevenueLabel"
             app:layout_constraintStart_toStartOf="@id/detailTextMovieDuration"
             app:layout_constraintTop_toBottomOf="@id/detailTextMovieDuration" />
 
         <TextView
-            android:id="@+id/detailTextMovieStatusLabel"
+            android:id="@+id/detailTextMovieRevenueLabel"
             style="@style/TextAppearance.MaterialComponents.Caption"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -129,19 +129,19 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="@id/detailMovieImageContainer"
-            app:layout_constraintEnd_toStartOf="@id/detailTextMovieStatus"
+            app:layout_constraintEnd_toStartOf="@id/detailTextMovieRevenue"
             app:layout_constraintStart_toStartOf="@id/detailTextMovieBudgetLabel"
             app:layout_constraintTop_toBottomOf="@id/detailTextMovieBudgetLabel"
             tools:text="$300,000,000.00" />
 
         <TextView
-            android:id="@+id/detailTextMovieStatus"
+            android:id="@+id/detailTextMovieRevenue"
             style="@style/TextAppearance.MaterialComponents.Body2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             tools:text="$2,046,239,637.00"
             app:layout_constraintBottom_toBottomOf="@id/detailTextMovieBudget"
-            app:layout_constraintEnd_toEndOf="@id/detailTextMovieStatusLabel"
+            app:layout_constraintEnd_toEndOf="@id/detailTextMovieRevenueLabel"
             app:layout_constraintStart_toEndOf="@id/detailTextMovieBudget"
             app:layout_constraintTop_toTopOf="@id/detailTextMovieBudget" />
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -158,6 +158,7 @@
         app:layout_constraintTop_toBottomOf="@id/detailMovieContentSection1">
 
         <TextView
+            android:id="@+id/detailTextMovieGenreLabel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/detail_genres_label" />
@@ -174,6 +175,7 @@
         </com.google.android.flexbox.FlexboxLayout>
 
         <TextView
+            android:id="@+id/detailTextMovieOverviewLabel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_8dp"

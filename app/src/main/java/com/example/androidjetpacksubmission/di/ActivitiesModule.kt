@@ -1,6 +1,5 @@
 package com.example.androidjetpacksubmission.di
 
-import com.example.androidjetpacksubmission.testing.SingleFragmentActivity
 import com.example.androidjetpacksubmission.ui.MovieDetailActivity
 import com.example.androidjetpacksubmission.ui.TvShowDetailActivity
 import com.example.androidjetpacksubmission.ui.home.fragments.FragmentProviderModule

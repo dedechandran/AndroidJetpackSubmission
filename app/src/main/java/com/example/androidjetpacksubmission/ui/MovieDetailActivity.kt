@@ -59,7 +59,7 @@ class MovieDetailActivity : BaseActivity() {
         detailTextMovieDuration.text = movie?.movieDuration
         detailTextMovieLanguage.text = movie?.movieLanguage
         detailTextMovieBudget.text = currencyFormat.format(movie?.movieBudget?.toLong())
-        detailTextMovieStatus.text = currencyFormat.format(movie?.movieRevenue?.toLong())
+        detailTextMovieRevenue.text = currencyFormat.format(movie?.movieRevenue?.toLong())
         showGenres(movie?.movieGenres?.split(";")!!)
     }
 

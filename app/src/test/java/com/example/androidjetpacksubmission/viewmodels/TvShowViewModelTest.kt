@@ -39,5 +39,6 @@ class TvShowViewModelTest {
         assertEquals(1,tvShow.tvShowId)
         assertEquals("Doom Patrol",tvShow.tvShowTitle)
         assertEquals("February 15, 2019",tvShow.tvShowReleaseDate)
+        assertEquals("English",tvShow.tvShowLanguage)
     }
 }

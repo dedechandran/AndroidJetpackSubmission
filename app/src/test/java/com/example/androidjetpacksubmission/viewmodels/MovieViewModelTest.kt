@@ -39,5 +39,6 @@ class MovieViewModelTest {
         assertEquals(1,movie.movieId)
         assertEquals("Alita",movie.movieTitle)
         assertEquals("January 31, 2019",movie.movieReleaseDate)
+        assertEquals("English",movie.movieLanguage)
     }
 }
