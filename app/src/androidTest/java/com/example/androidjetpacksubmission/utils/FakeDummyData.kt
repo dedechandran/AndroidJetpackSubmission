@@ -3,10 +3,8 @@ package com.example.androidjetpacksubmission.utils
 import com.example.androidjetpacksubmission.R
 import com.example.androidjetpacksubmission.domain.Movie
 import com.example.androidjetpacksubmission.domain.TvShow
-import javax.inject.Inject
 
-
-open class DummyData @Inject constructor(){
+class FakeDummyData {
     fun getMovieList(): List<Movie> {
         val movies = mutableListOf<Movie>()
         movies.add(

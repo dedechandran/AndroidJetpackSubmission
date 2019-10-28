@@ -4,13 +4,9 @@ import androidx.lifecycle.ViewModel
 import com.example.androidjetpacksubmission.domain.TvShow
 import com.example.androidjetpacksubmission.utils.DummyData
 
-class TvShowViewModel constructor(dummyData: DummyData) : ViewModel() {
-    private val tvShows = mutableListOf<TvShow>()
-    init {
-        tvShows.addAll(dummyData.getTvShowList())
-    }
+class TvShowViewModel constructor(private val dummyData: DummyData) : ViewModel() {
 
-    fun loadTvShows() = tvShows
+    fun loadTvShows() : List<TvShow> = dummyData.getTvShowList()
 
-    fun getTvShowDetail(tvShowId : Int) = tvShows[tvShowId]
+    fun getTvShowDetail(tvShowId : Int) : TvShow = dummyData.getTvShowList()[tvShowId]
 }
