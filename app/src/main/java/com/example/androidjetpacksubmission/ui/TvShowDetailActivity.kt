@@ -53,8 +53,8 @@ class TvShowDetailActivity : BaseActivity() {
         detailTextTvShowDuration.text = tvShow?.tvShowDuration
         detailTextTvShowLanguage.text = tvShow?.tvShowLanguage
         detailTextTvShowType.text = tvShow?.tvShowType
-        detailTextTvShowStatus.text = "-"
-        showGenres(tvShow?.tvShowGenres!!)
+        detailTextTvShowStatus.text = tvShow?.tvShowStatus
+        showGenres(tvShow?.tvShowGenres?.split(";")!!)
 
     }
 

@@ -7,7 +7,7 @@ data class Movie(
     val movieOverview: String,
     val movieReleaseDate: String,
     val movieDuration: String,
-    val movieGenres: List<String>,
+    val movieGenres: String,
     val movieLanguage: String,
     val movieBudget : String,
     val movieRevenue: String

@@ -14,6 +14,7 @@ import com.example.androidjetpacksubmission.viewmodels.MovieViewModel
 import com.google.android.flexbox.FlexboxLayout
 import kotlinx.android.synthetic.main.activity_movie_detail.*
 import kotlinx.android.synthetic.main.genre_item.*
+import java.text.NumberFormat
 import javax.inject.Inject
 
 class MovieDetailActivity : BaseActivity() {
@@ -44,7 +45,11 @@ class MovieDetailActivity : BaseActivity() {
     }
     
     private fun showMovieDetail(movieId : Int){
+        val currencyFormat = NumberFormat.getCurrencyInstance()
+        currencyFormat.minimumFractionDigits = 0
+
         val movie = movieViewModel?.getMovieDetail(movieId)
+
         detailTextMovieTitle.text = movie?.movieTitle
         detailTextMovieDate.text = movie?.movieReleaseDate
         Glide.with(this)
@@ -53,9 +58,9 @@ class MovieDetailActivity : BaseActivity() {
         detailTextMovieOverview.text = movie?.movieOverview
         detailTextMovieDuration.text = movie?.movieDuration
         detailTextMovieLanguage.text = movie?.movieLanguage
-        detailTextMovieBudget.text = movie?.movieBudget
-        detailTextMovieStatus.text = movie?.movieRevenue
-        showGenres(movie?.movieGenres!!)
+        detailTextMovieBudget.text = currencyFormat.format(movie?.movieBudget?.toLong())
+        detailTextMovieStatus.text = currencyFormat.format(movie?.movieRevenue?.toLong())
+        showGenres(movie?.movieGenres?.split(";")!!)
     }
 
 

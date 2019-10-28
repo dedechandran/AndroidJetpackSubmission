@@ -16,26 +16,21 @@ import org.mockito.junit.MockitoJUnitRunner
 
 @RunWith(MockitoJUnitRunner::class)
 class DummyDataTest {
-    @Mock
-    private lateinit var resources: Resources
-    @InjectMocks
+
     private lateinit var dummyData: DummyData
 
     @Before
     fun setUp() {
-        MockitoAnnotations.initMocks(this)
+        dummyData = DummyData()
     }
 
     @Test
     fun getMovieList() {
-        val movieTitleArray = arrayOf("x","y","z"
-        )
-        whenever(resources.getStringArray(R.array.movie_titles)).thenReturn(movieTitleArray)
         val movies = dummyData.getMovieList()
-        verify(resources).getStringArray(R.array.movie_titles)
     }
 
     @Test
     fun getTvShowList() {
+        val tvShow = dummyData.getTvShowList()
     }
 }

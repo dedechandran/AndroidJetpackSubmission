@@ -8,7 +8,8 @@ data class TvShow(
     val tvShowReleaseDate: String,
     val tvShowLanguage: String,
     val tvShowDuration: String,
-    val tvShowGenres: List<String>,
-    val tvShowType: String
+    val tvShowGenres: String,
+    val tvShowType: String,
+    val tvShowStatus: String
 
 )
