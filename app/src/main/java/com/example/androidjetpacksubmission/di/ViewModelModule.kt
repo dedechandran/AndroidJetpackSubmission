@@ -11,7 +11,7 @@ import dagger.Provides
 import dagger.multibindings.IntoMap
 
 @Module
-class ViewModelModule {
+object ViewModelModule {
     @Provides
     @IntoMap
     @ViewModelKey(MovieViewModel::class)
