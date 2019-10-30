@@ -1,4 +1,4 @@
-package com.example.androidjetpacksubmission.di
+package com.example.androidjetpacksubmission.di.modules
 
 import com.example.androidjetpacksubmission.ui.MovieDetailActivity
 import com.example.androidjetpacksubmission.ui.TvShowDetailActivity

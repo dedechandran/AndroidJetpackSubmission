@@ -1,7 +1,8 @@
-package com.example.androidjetpacksubmission.di
+package com.example.androidjetpacksubmission.di.modules
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.example.androidjetpacksubmission.di.ViewModelKey
 import com.example.androidjetpacksubmission.utils.DummyData
 import com.example.androidjetpacksubmission.viewmodels.MovieViewModel
 import com.example.androidjetpacksubmission.viewmodels.TvShowViewModel
@@ -9,6 +10,7 @@ import com.example.androidjetpacksubmission.viewmodels.ViewModelFactory
 import dagger.Module
 import dagger.Provides
 import dagger.multibindings.IntoMap
+import javax.inject.Singleton
 
 @Module
 object ViewModelModule {
@@ -24,6 +26,7 @@ object ViewModelModule {
     fun provideTvShowViewModel(dummyData: DummyData): ViewModel =
         TvShowViewModel(dummyData)
 
+    @Singleton
     @Provides
     fun provideViewModelFactory(viewModelFactory: ViewModelFactory): ViewModelProvider.Factory =
         viewModelFactory

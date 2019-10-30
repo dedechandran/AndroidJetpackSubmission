@@ -1,4 +1,4 @@
-package com.example.androidjetpacksubmission.di
+package com.example.androidjetpacksubmission.di.modules
 
 import android.content.Context
 import com.example.androidjetpacksubmission.AppCore

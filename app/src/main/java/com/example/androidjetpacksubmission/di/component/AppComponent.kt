@@ -1,6 +1,7 @@
-package com.example.androidjetpacksubmission.di
+package com.example.androidjetpacksubmission.di.component
 
 import com.example.androidjetpacksubmission.AppCore
+import com.example.androidjetpacksubmission.di.modules.*
 import dagger.Component
 import dagger.android.AndroidInjectionModule
 import dagger.android.AndroidInjector
@@ -12,7 +13,10 @@ import javax.inject.Singleton
         (AndroidInjectionModule::class),
         (ActivitiesModule::class),
         (AppModule::class),
-        (ViewModelModule::class)]
+        (ViewModelModule::class),
+        (NetworkModule::class),
+        (RepositoryModule::class),
+        (ApiModules::class)]
 )
 interface AppComponent : AndroidInjector<AppCore> {
     @Component.Factory
