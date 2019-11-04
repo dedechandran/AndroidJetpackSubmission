@@ -1,4 +1,4 @@
-package com.example.androidjetpacksubmission.ui.home.fragments.tvshow
+package com.example.androidjetpacksubmission.ui.home.tvshow
 
 
 import android.os.Bundle

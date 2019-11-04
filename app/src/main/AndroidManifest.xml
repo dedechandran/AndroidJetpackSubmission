@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.androidjetpacksubmission">
-
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:name=".AppCore"
         android:allowBackup="true"
@@ -13,10 +13,10 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name=".ui.TvShowDetailActivity"
+            android:name=".ui.home.tvshow.TvShowDetailActivity"
             android:parentActivityName=".ui.home.HomeActivity" />
         <activity
-            android:name=".ui.MovieDetailActivity"
+            android:name=".ui.home.movie.MovieDetailActivity"
             android:parentActivityName=".ui.home.HomeActivity" />
         <activity
             android:name=".ui.home.HomeActivity"

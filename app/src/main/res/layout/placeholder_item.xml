@@ -1,6 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/movieCardContainer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/margin_8dp"
+    app:cardCornerRadius="@dimen/corner_radius_4dp">
 
-</LinearLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_8dp">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/placeHolderImageContainer"
+            android:layout_width="@dimen/img_item_size_width"
+            android:layout_height="@dimen/img_item_size_height"
+            android:layout_marginEnd="8dp"
+            app:cardCornerRadius="@dimen/corner_radius_4dp"
+            app:layout_constraintEnd_toStartOf="@+id/placeHolderTextReleaseDate"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/movieImage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorGrey"
+                android:contentDescription="@string/movie_image_description"
+                android:scaleType="centerCrop" />
+        </com.google.android.material.card.MaterialCardView>
+
+
+        <TextView
+            android:id="@+id/placeHolderTextReleaseDate"
+            style="@style/TextAppearance.MaterialComponents.Headline5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/colorGrey"
+            app:layout_constraintBottom_toTopOf="@id/placeHolderTextTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/placeHolderImageContainer"
+            app:layout_constraintTop_toTopOf="@id/placeHolderImageContainer" />
+
+        <TextView
+            android:id="@+id/placeHolderTextTitle"
+            style="@style/TextAppearance.MaterialComponents.Headline5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_8dp"
+            android:background="@color/colorGrey"
+            android:ellipsize="end"
+            android:maxLines="2"
+            app:layout_constraintEnd_toEndOf="@id/placeHolderTextReleaseDate"
+            app:layout_constraintStart_toStartOf="@id/placeHolderTextReleaseDate"
+            app:layout_constraintTop_toBottomOf="@id/placeHolderTextReleaseDate" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

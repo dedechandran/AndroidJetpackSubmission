@@ -11,8 +11,8 @@ import com.example.androidjetpacksubmission.R
 import com.example.androidjetpacksubmission.fixtures.AVAILABLE_MOVIE
 import com.example.androidjetpacksubmission.fixtures.AVAILABLE_TV_SHOW
 import com.example.androidjetpacksubmission.fixtures.TV_SHOW_TAB_TITLE
-import com.example.androidjetpacksubmission.ui.home.fragments.movie.MovieAdapter
-import com.example.androidjetpacksubmission.ui.home.fragments.tvshow.TvShowAdapter
+import com.example.androidjetpacksubmission.ui.home.movie.MovieAdapter
+import com.example.androidjetpacksubmission.ui.home.tvshow.TvShowAdapter
 import com.example.androidjetpacksubmission.utils.RecyclerViewItemCountAssertion
 import org.junit.Rule
 import org.junit.Test

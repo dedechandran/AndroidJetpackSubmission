@@ -1,7 +1,7 @@
-package com.example.androidjetpacksubmission.ui.home.fragments
+package com.example.androidjetpacksubmission.ui.home
 
-import com.example.androidjetpacksubmission.ui.home.fragments.movie.MovieFragment
-import com.example.androidjetpacksubmission.ui.home.fragments.tvshow.TvShowFragment
+import com.example.androidjetpacksubmission.ui.home.movie.MovieFragment
+import com.example.androidjetpacksubmission.ui.home.tvshow.TvShowFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 

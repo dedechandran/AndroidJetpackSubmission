@@ -1,4 +1,4 @@
-package com.example.androidjetpacksubmission.ui.home.fragments.movie
+package com.example.androidjetpacksubmission.ui.home.movie
 
 import android.view.LayoutInflater
 import android.view.View

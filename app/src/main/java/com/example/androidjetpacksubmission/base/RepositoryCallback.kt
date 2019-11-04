@@ -1,4 +1,6 @@
 package com.example.androidjetpacksubmission.base
 
-interface RepositoryCallback {
+interface RepositoryCallback<T> {
+    fun onSuccess(data : T)
+    fun onFailure(t : Throwable)
 }

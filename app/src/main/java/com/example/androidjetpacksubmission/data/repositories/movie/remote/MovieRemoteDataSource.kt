@@ -8,7 +8,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import javax.inject.Inject
 
-class MovieRemoteRepository @Inject constructor(
+class MovieRemoteDataSource @Inject constructor(
     private val movieService: MovieService,
     private val movieMapper: MovieMapper
 ) {

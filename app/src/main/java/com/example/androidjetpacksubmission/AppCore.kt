@@ -1,6 +1,6 @@
 package com.example.androidjetpacksubmission
 
-import com.example.androidjetpacksubmission.di.DaggerAppComponent
+import com.example.androidjetpacksubmission.di.component.DaggerAppComponent
 import dagger.android.AndroidInjector
 import dagger.android.DaggerApplication
 

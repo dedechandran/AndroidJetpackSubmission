@@ -6,6 +6,11 @@ import javax.inject.Inject
 
 class NetworkInterceptor @Inject constructor() : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        val url = chain.request().url
+            .newBuilder()
+            .addQueryParameter("api_key","a4efaa7ae55e845278da0fd4549e3246")
+            .build()
+        val request = chain.request().newBuilder().url(url).build()
+        return chain.proceed(request)
     }
 }

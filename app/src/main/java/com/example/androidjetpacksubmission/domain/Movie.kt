@@ -3,12 +3,12 @@ package com.example.androidjetpacksubmission.domain
 data class Movie(
     val movieId: Int,
     val movieTitle: String,
-    val moviePoster: Int,
+    val moviePoster: String,
     val movieOverview: String,
     val movieReleaseDate: String,
-    val movieDuration: String,
-    val movieGenres: String,
-    val movieLanguage: String,
-    val movieBudget : String,
-    val movieRevenue: String
+    var movieDuration: String? = null,
+    var movieGenres: String? = null,
+    var movieLanguage: String? = null,
+    var movieBudget : String? = null,
+    var movieRevenue: String? = null
 )

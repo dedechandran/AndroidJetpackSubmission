@@ -1,4 +1,4 @@
-package com.example.androidjetpacksubmission.ui
+package com.example.androidjetpacksubmission.ui.home.tvshow
 
 import android.os.Bundle
 import com.example.androidjetpacksubmission.R

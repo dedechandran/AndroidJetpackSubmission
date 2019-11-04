@@ -1,4 +1,4 @@
-package com.example.androidjetpacksubmission.ui.home
+package com.example.androidjetpacksubmission.ui.home.movie
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

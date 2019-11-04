@@ -19,6 +19,7 @@ ext {
     // UI version
     flexBoxVersion = '1.1.1'
     materialVersion = '1.0.0'
+    shimmerVersion = '0.5.0'
 
     // Test Version
     junitVersion = '4.12'

@@ -2,10 +2,10 @@ package com.example.androidjetpacksubmission.di.modules
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.example.androidjetpacksubmission.data.repositories.movie.MovieRepository
 import com.example.androidjetpacksubmission.di.ViewModelKey
-import com.example.androidjetpacksubmission.utils.DummyData
-import com.example.androidjetpacksubmission.viewmodels.MovieViewModel
-import com.example.androidjetpacksubmission.viewmodels.TvShowViewModel
+import com.example.androidjetpacksubmission.ui.home.movie.MovieViewModel
+import com.example.androidjetpacksubmission.ui.home.tvshow.TvShowViewModel
 import com.example.androidjetpacksubmission.viewmodels.ViewModelFactory
 import dagger.Module
 import dagger.Provides
@@ -17,14 +17,14 @@ object ViewModelModule {
     @Provides
     @IntoMap
     @ViewModelKey(MovieViewModel::class)
-    fun provideMovieViewModel(dummyData: DummyData): ViewModel =
-        MovieViewModel(dummyData)
+    fun provideMovieViewModel(movieRepository: MovieRepository): ViewModel =
+        MovieViewModel(movieRepository)
 
     @Provides
     @IntoMap
     @ViewModelKey(TvShowViewModel::class)
-    fun provideTvShowViewModel(dummyData: DummyData): ViewModel =
-        TvShowViewModel(dummyData)
+    fun provideTvShowViewModel(): ViewModel =
+        TvShowViewModel()
 
     @Singleton
     @Provides

@@ -1,6 +1,5 @@
-package com.example.androidjetpacksubmission.ui.home
+package com.example.androidjetpacksubmission.ui.home.tvshow
 
 import androidx.lifecycle.ViewModel
-import com.example.androidjetpacksubmission.data.repositories.tvshow.TvShowRepository
 
-class TvShowViewModel constructor() : ViewModel()
+class TvShowViewModel : ViewModel()
