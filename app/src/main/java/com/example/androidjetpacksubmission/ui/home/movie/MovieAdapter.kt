@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.androidjetpacksubmission.R
 import com.example.androidjetpacksubmission.domain.Movie
+import com.example.androidjetpacksubmission.fixtures.IMAGE_URL
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.movie_item.view.*
 
@@ -41,7 +42,7 @@ class MovieAdapter(private val listener: (Movie) -> Unit) : RecyclerView.Adapter
                 listener(item)
             }
             containerView.movieImage.apply {
-                Glide.with(itemView).load(item.moviePoster).into(this)
+                Glide.with(itemView).load("$IMAGE_URL${item.moviePoster}").into(this)
             }
             containerView.movieTextTitle.text = item.movieTitle
             containerView.movieTextOverview.text = item.movieOverview
