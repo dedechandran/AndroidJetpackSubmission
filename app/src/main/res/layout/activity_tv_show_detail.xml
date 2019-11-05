@@ -28,8 +28,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:contentDescription="@string/tv_show_image_description"
-                android:scaleType="centerCrop"
-                android:src="@drawable/mv_poster_infinity_war" />
+                android:scaleType="centerCrop" />
         </com.google.android.material.card.MaterialCardView>
 
         <TextView

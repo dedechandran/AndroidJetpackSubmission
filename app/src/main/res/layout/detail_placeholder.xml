@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/detailPlaceHolderContentSection1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/detailPlaceHolderContentSection2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/detailPlaceHolderImageContainer"
+            android:layout_width="@dimen/img_item_size_width"
+            android:layout_height="@dimen/img_item_size_height"
+            app:cardCornerRadius="@dimen/corner_radius_4dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/detailPlaceHolderMovieImage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorGrey"
+                android:scaleType="centerCrop" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/detailPlaceHolderTitle"
+            style="@style/TextAppearance.MaterialComponents.Headline5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_8dp"
+            android:background="@color/colorGrey"
+            app:layout_constraintBottom_toTopOf="@id/detailPlaceHolderDate"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/detailPlaceHolderImageContainer"
+            app:layout_constraintTop_toTopOf="@id/detailPlaceHolderImageContainer" />
+
+        <TextView
+            android:id="@+id/detailPlaceHolderDate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/colorGrey"
+            app:layout_constraintBottom_toTopOf="@id/detailPlaceHolderDurationLabel"
+            app:layout_constraintEnd_toEndOf="@id/detailPlaceHolderTitle"
+            app:layout_constraintStart_toStartOf="@id/detailPlaceHolderTitle"
+            app:layout_constraintTop_toBottomOf="@id/detailPlaceHolderTitle" />
+
+        <TextView
+            android:id="@+id/detailPlaceHolderDurationLabel"
+            style="@style/TextAppearance.MaterialComponents.Caption"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_8dp"
+            android:background="@color/colorGrey"
+            app:layout_constraintBottom_toTopOf="@id/detailPlaceHolderDuration"
+            app:layout_constraintEnd_toStartOf="@id/detailPlaceHolderLanguageLabel"
+            app:layout_constraintStart_toStartOf="@id/detailPlaceHolderDate"
+            app:layout_constraintTop_toBottomOf="@id/detailPlaceHolderDate" />
+
+        <TextView
+            android:id="@+id/detailPlaceHolderLanguageLabel"
+            style="@style/TextAppearance.MaterialComponents.Caption"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/colorGrey"
+            app:layout_constraintBottom_toBottomOf="@id/detailPlaceHolderDurationLabel"
+            app:layout_constraintEnd_toEndOf="@id/detailPlaceHolderDate"
+            app:layout_constraintStart_toEndOf="@id/detailPlaceHolderDurationLabel"
+            app:layout_constraintTop_toTopOf="@id/detailPlaceHolderDurationLabel" />
+
+        <TextView
+            android:id="@+id/detailPlaceHolderDuration"
+            style="@style/TextAppearance.MaterialComponents.Body2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/colorGrey"
+            app:layout_constraintBottom_toTopOf="@id/detailPlaceHolderBudgetLabel"
+            app:layout_constraintEnd_toStartOf="@id/detailPlaceHolderLanguage"
+            app:layout_constraintStart_toEndOf="@id/detailPlaceHolderDate"
+            app:layout_constraintStart_toStartOf="@id/detailPlaceHolderDurationLabel"
+            app:layout_constraintTop_toBottomOf="@id/detailPlaceHolderDurationLabel" />
+
+        <TextView
+            android:id="@+id/detailPlaceHolderLanguage"
+            style="@style/TextAppearance.MaterialComponents.Body2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/colorGrey"
+            app:layout_constraintBottom_toBottomOf="@id/detailPlaceHolderDuration"
+            app:layout_constraintEnd_toEndOf="@id/detailPlaceHolderLanguageLabel"
+            app:layout_constraintStart_toEndOf="@id/detailPlaceHolderDuration"
+            app:layout_constraintTop_toTopOf="@id/detailPlaceHolderDuration" />
+
+        <TextView
+            android:id="@+id/detailPlaceHolderBudgetLabel"
+            style="@style/TextAppearance.MaterialComponents.Caption"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_8dp"
+            android:background="@color/colorGrey"
+            app:layout_constraintBottom_toTopOf="@id/detailPlaceHolderBudget"
+            app:layout_constraintEnd_toStartOf="@id/detailPlaceHolderRevenueLabel"
+            app:layout_constraintStart_toStartOf="@id/detailPlaceHolderDuration"
+            app:layout_constraintTop_toBottomOf="@id/detailPlaceHolderDuration" />
+
+        <TextView
+            android:id="@+id/detailPlaceHolderRevenueLabel"
+            style="@style/TextAppearance.MaterialComponents.Caption"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/colorGrey"
+            app:layout_constraintBottom_toBottomOf="@id/detailPlaceHolderBudgetLabel"
+            app:layout_constraintEnd_toEndOf="@id/detailPlaceHolderLanguage"
+            app:layout_constraintStart_toEndOf="@id/detailPlaceHolderBudgetLabel"
+            app:layout_constraintTop_toTopOf="@id/detailPlaceHolderBudgetLabel" />
+
+        <TextView
+
+            android:id="@+id/detailPlaceHolderBudget"
+            style="@style/TextAppearance.MaterialComponents.Body2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/colorGrey"
+            app:layout_constraintBottom_toBottomOf="@id/detailPlaceHolderImageContainer"
+            app:layout_constraintEnd_toStartOf="@id/detailPlaceHolderRevenue"
+            app:layout_constraintStart_toStartOf="@id/detailPlaceHolderBudgetLabel"
+            app:layout_constraintTop_toBottomOf="@id/detailPlaceHolderBudgetLabel" />
+
+        <TextView
+            android:id="@+id/detailPlaceHolderRevenue"
+            style="@style/TextAppearance.MaterialComponents.Body2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/colorGrey"
+            app:layout_constraintBottom_toBottomOf="@id/detailPlaceHolderBudget"
+            app:layout_constraintEnd_toEndOf="@id/detailPlaceHolderRevenueLabel"
+            app:layout_constraintStart_toEndOf="@id/detailPlaceHolderBudget"
+            app:layout_constraintTop_toTopOf="@id/detailPlaceHolderBudget" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/detailPlaceHolderContentSection2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/margin_8dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/detailPlaceHolderContentSection1"
+        app:layout_constraintStart_toStartOf="@id/detailPlaceHolderContentSection1"
+        app:layout_constraintTop_toBottomOf="@id/detailPlaceHolderContentSection1">
+
+        <TextView
+            android:id="@+id/detailPlaceHolderGenreLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorGrey" />
+
+        <com.google.android.flexbox.FlexboxLayout
+            android:id="@+id/detailPlaceHolderGenresContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_8dp"
+            app:dividerDrawable="@drawable/divider"
+            app:flexWrap="wrap"
+            app:showDivider="middle">
+
+        </com.google.android.flexbox.FlexboxLayout>
+
+        <TextView
+            android:id="@+id/detailPlaceHolderOverviewLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_8dp"
+            android:background="@color/colorGrey" />
+
+        <TextView
+            android:id="@+id/detailPlaceHolderOverview"
+            style="@style/TextAppearance.MaterialComponents.Body2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_8dp"
+            android:layout_marginBottom="@dimen/margin_8dp"
+            android:background="@color/colorGrey" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

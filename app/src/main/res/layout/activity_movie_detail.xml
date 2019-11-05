@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/padding_8dp">
@@ -27,8 +26,7 @@
                 android:id="@+id/detailMovieImage"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scaleType="centerCrop"
-                android:src="@drawable/mv_poster_infinity_war" />
+                android:scaleType="centerCrop" />
         </com.google.android.material.card.MaterialCardView>
 
         <TextView
@@ -37,7 +35,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_8dp"
-            tools:text="The Walking Deaddddddddddddddd"
             app:layout_constraintBottom_toTopOf="@id/detailTextMovieDate"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/detailMovieImageContainer"
@@ -47,7 +44,6 @@
             android:id="@+id/detailTextMovieDate"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            tools:text="October 3, 2018"
             app:layout_constraintBottom_toTopOf="@id/detailTextMovieDurationLabel"
             app:layout_constraintEnd_toEndOf="@id/detailTextMovieTitle"
             app:layout_constraintStart_toStartOf="@id/detailTextMovieTitle"
@@ -59,7 +55,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_8dp"
-            android:text="@string/detail_duration_label"
             app:layout_constraintBottom_toTopOf="@id/detailTextMovieDuration"
             app:layout_constraintEnd_toStartOf="@id/detailTextMovieLanguageLabel"
             app:layout_constraintStart_toStartOf="@id/detailTextMovieDate"
@@ -70,7 +65,6 @@
             style="@style/TextAppearance.MaterialComponents.Caption"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/detail_language_label"
             app:layout_constraintBottom_toBottomOf="@id/detailTextMovieDurationLabel"
             app:layout_constraintEnd_toEndOf="@id/detailTextMovieDate"
             app:layout_constraintStart_toEndOf="@id/detailTextMovieDurationLabel"
@@ -81,7 +75,6 @@
             style="@style/TextAppearance.MaterialComponents.Body2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            tools:text="2h 15m"
             app:layout_constraintBottom_toTopOf="@id/detailTextMovieBudgetLabel"
             app:layout_constraintEnd_toStartOf="@id/detailTextMovieLanguage"
             app:layout_constraintStart_toEndOf="@id/detailTextMovieDate"
@@ -93,7 +86,6 @@
             style="@style/TextAppearance.MaterialComponents.Body2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            tools:text="English"
             app:layout_constraintBottom_toBottomOf="@id/detailTextMovieDuration"
             app:layout_constraintEnd_toEndOf="@id/detailTextMovieLanguageLabel"
             app:layout_constraintStart_toEndOf="@id/detailTextMovieDuration"
@@ -105,7 +97,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_8dp"
-            android:text="@string/detail_budget_label"
             app:layout_constraintBottom_toTopOf="@id/detailTextMovieBudget"
             app:layout_constraintEnd_toStartOf="@id/detailTextMovieRevenueLabel"
             app:layout_constraintStart_toStartOf="@id/detailTextMovieDuration"
@@ -116,7 +107,6 @@
             style="@style/TextAppearance.MaterialComponents.Caption"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/detail_revenue_label"
             app:layout_constraintBottom_toBottomOf="@id/detailTextMovieBudgetLabel"
             app:layout_constraintEnd_toEndOf="@id/detailTextMovieLanguage"
             app:layout_constraintStart_toEndOf="@id/detailTextMovieBudgetLabel"
@@ -131,15 +121,13 @@
             app:layout_constraintBottom_toBottomOf="@id/detailMovieImageContainer"
             app:layout_constraintEnd_toStartOf="@id/detailTextMovieRevenue"
             app:layout_constraintStart_toStartOf="@id/detailTextMovieBudgetLabel"
-            app:layout_constraintTop_toBottomOf="@id/detailTextMovieBudgetLabel"
-            tools:text="$300,000,000.00" />
+            app:layout_constraintTop_toBottomOf="@id/detailTextMovieBudgetLabel" />
 
         <TextView
             android:id="@+id/detailTextMovieRevenue"
             style="@style/TextAppearance.MaterialComponents.Body2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            tools:text="$2,046,239,637.00"
             app:layout_constraintBottom_toBottomOf="@id/detailTextMovieBudget"
             app:layout_constraintEnd_toEndOf="@id/detailTextMovieRevenueLabel"
             app:layout_constraintStart_toEndOf="@id/detailTextMovieBudget"
@@ -160,8 +148,7 @@
         <TextView
             android:id="@+id/detailTextMovieGenreLabel"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/detail_genres_label" />
+            android:layout_height="wrap_content" />
 
         <com.google.android.flexbox.FlexboxLayout
             android:id="@+id/detailMovieGenresContainer"
@@ -178,8 +165,7 @@
             android:id="@+id/detailTextMovieOverviewLabel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_8dp"
-            android:text="@string/detail_overview_label" />
+            android:layout_marginTop="@dimen/margin_8dp" />
 
         <TextView
             android:id="@+id/detailTextMovieOverview"
@@ -187,11 +173,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_8dp"
-            android:layout_marginBottom="@dimen/margin_8dp"
-            tools:text="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" />
+            android:layout_marginBottom="@dimen/margin_8dp" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmerMovieDetailContainer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <include layout="@layout/detail_placeholder" />
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

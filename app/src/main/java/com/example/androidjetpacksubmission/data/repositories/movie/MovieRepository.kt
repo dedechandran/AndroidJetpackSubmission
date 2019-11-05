@@ -7,15 +7,15 @@ import com.example.androidjetpacksubmission.base.Resource
 import com.example.androidjetpacksubmission.data.repositories.movie.remote.MovieRemoteDataSource
 import com.example.androidjetpacksubmission.domain.Movie
 import javax.inject.Inject
+import javax.inject.Singleton
 
+@Singleton
 class MovieRepository @Inject constructor(private val movieRemoteDataSource: MovieRemoteDataSource) {
-    private val movies: MutableLiveData<Resource<List<Movie>>> by lazy {
-        MutableLiveData<Resource<List<Movie>>>()
-    }
 
     fun getAllMovies(): MutableLiveData<Resource<List<Movie>>> {
+        val movies = MutableLiveData<Resource<List<Movie>>>()
         movies.postValue(Resource.loading())
-        movieRemoteDataSource.getAllMovies(object : RepositoryCallback<List<Movie>> {
+        movieRemoteDataSource.loadMovies(object : RepositoryCallback<List<Movie>> {
             override fun onSuccess(data: List<Movie>) {
                 movies.postValue(Resource.success(data))
             }
@@ -27,4 +27,22 @@ class MovieRepository @Inject constructor(private val movieRemoteDataSource: Mov
         })
         return movies
     }
+
+    fun getMovieById(movieId: Int): MutableLiveData<Resource<Movie>> {
+        val movie = MutableLiveData<Resource<Movie>>()
+        movie.postValue(Resource.loading())
+        movieRemoteDataSource.loadMovieDetail(movieId, object : RepositoryCallback<Movie> {
+            override fun onSuccess(data: Movie) {
+                movie.postValue(Resource.success(data))
+            }
+
+            override fun onFailure(t: Throwable) {
+                movie.postValue(Resource.error(t.message!!))
+            }
+
+        })
+        return movie
+    }
+
+
 }

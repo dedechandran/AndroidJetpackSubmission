@@ -13,7 +13,7 @@ data class MovieResponse(
     var totalPages: Int = 0,
 
     @SerializedName("results")
-    val data: List<MovieData> = mutableListOf()
+    val data: List<MovieData>
 ) {
     data class MovieData(
         @SerializedName("id")

@@ -10,5 +10,5 @@ interface MovieService  {
     fun getAllMovies() : Call<MovieResponse>
 
     @GET("movie/{id}")
-    fun getMovie(@Path("id") movieId: String) : Call<MovieDetailResponse>
+    fun getMovie(@Path("id") movieId: Int) : Call<MovieDetailResponse>
 }
