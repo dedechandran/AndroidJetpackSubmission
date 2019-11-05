@@ -17,7 +17,7 @@ class TvShowViewModel @Inject constructor(private val tvShowRepository: TvShowRe
 
     private fun tvShowTransformation(resource: Resource<TvShow>) : Resource<TvShow>{
         resource.data?.apply {
-            tvShowDuration = DataHelper.convertDurationToString(tvShowDuration?.toInt()!!)
+            tvShowDuration = DataHelper.convertDurationToHoursAndMinute(tvShowDuration?.toInt()!!)
             tvShowLanguage = DataHelper.convertLanguageCode(tvShowLanguage!!)
         }
 

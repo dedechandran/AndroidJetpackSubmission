@@ -18,7 +18,7 @@ class MovieViewModel constructor(private val movieRepository: MovieRepository) :
             movieLanguage = DataHelper.convertLanguageCode(movieLanguage!!)
             movieBudget = DataHelper.convertNominalToDollar(movieBudget?.toLong()!!)
             movieRevenue = DataHelper.convertNominalToDollar(movieRevenue?.toLong()!!)
-            movieDuration = DataHelper.convertDurationToString(movieDuration?.toInt()!!)
+            movieDuration = DataHelper.convertDurationToHoursAndMinute(movieDuration?.toInt()!!)
         }
         return Resource(resource.status, resource.data, resource.message)
     }

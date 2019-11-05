@@ -4,7 +4,7 @@ import java.text.NumberFormat
 
 class DataHelper {
     companion object {
-        fun convertDurationToString(duration: Int): String {
+        fun convertDurationToHoursAndMinute(duration: Int): String {
             val hour = duration / 60
             val hourReminder = duration % 60
             var minute = 0
@@ -34,10 +34,10 @@ class DataHelper {
             else -> "-"
         }
 
-        fun convertNominalToDollar(nominal : Long) : String{
-            return if(nominal == 0L){
+        fun convertNominalToDollar(nominal: Long): String {
+            return if (nominal == 0L) {
                 "-"
-            }else{
+            } else {
                 val currencyFormat = NumberFormat.getCurrencyInstance()
                 currencyFormat.minimumFractionDigits = 0
                 currencyFormat.format(nominal)
