@@ -28,12 +28,8 @@ class MovieViewModel constructor(private val movieRepository: MovieRepository) :
         if(movies.value != null){
             return movies
         }
-        fetchMovies()
-        return movies
-    }
-
-    fun fetchMovies() {
         movies = movieRepository.getAllMovies()
+        return movies
     }
 
     fun getMovieDetail(movieId: Int): LiveData<Resource<Movie>> {

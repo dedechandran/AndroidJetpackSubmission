@@ -8,6 +8,7 @@ import com.example.androidjetpacksubmission.data.repositories.movie.MovieReposit
 import com.example.androidjetpacksubmission.domain.Movie
 import com.example.androidjetpacksubmission.fixtures.StatusFixtures
 import com.example.androidjetpacksubmission.utils.FakeDummyData
+import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever
 import org.junit.Before
@@ -26,8 +27,7 @@ class MovieViewModelTest {
 
     @Mock
     private lateinit var movieRepository: MovieRepository
-    @Mock
-    private lateinit var observer: Observer<Resource<List<Movie>>>
+
 
     private lateinit var movieViewModel: MovieViewModel
     @Before
@@ -45,9 +45,8 @@ class MovieViewModelTest {
 
         whenever(movieRepository.getAllMovies()).thenReturn(movies)
 
-        movieViewModel.fetchMovies()
+        val observer: Observer<Resource<List<Movie>>> = mock()
         movieViewModel.getMovies().observeForever(observer)
-
         verify(observer).onChanged(resource)
     }
 
