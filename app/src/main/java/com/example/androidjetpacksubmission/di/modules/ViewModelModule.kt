@@ -3,6 +3,7 @@ package com.example.androidjetpacksubmission.di.modules
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.androidjetpacksubmission.data.repositories.movie.MovieRepository
+import com.example.androidjetpacksubmission.data.repositories.tvshow.TvShowRepository
 import com.example.androidjetpacksubmission.di.ViewModelKey
 import com.example.androidjetpacksubmission.ui.home.movie.MovieViewModel
 import com.example.androidjetpacksubmission.ui.home.tvshow.TvShowViewModel
@@ -23,8 +24,8 @@ object ViewModelModule {
     @Provides
     @IntoMap
     @ViewModelKey(TvShowViewModel::class)
-    fun provideTvShowViewModel(): ViewModel =
-        TvShowViewModel()
+    fun provideTvShowViewModel(tvShowRepository: TvShowRepository): ViewModel =
+        TvShowViewModel(tvShowRepository)
 
     @Singleton
     @Provides

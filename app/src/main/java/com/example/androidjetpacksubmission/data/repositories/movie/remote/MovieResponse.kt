@@ -34,5 +34,4 @@ data class MovieResponse(
         @SerializedName("overview")
         var overview: String
     )
-
 }

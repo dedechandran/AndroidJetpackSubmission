@@ -47,12 +47,11 @@ class MovieFragment : BaseFragment() {
 
         movieViewModel?.getMovies()?.observe(viewLifecycleOwner, Observer {
             when (it.status) {
-                StatusFixtures.LOADING -> shimmerMovieContainer.startShimmer()
+                StatusFixtures.LOADING -> shimmerMovieContainer.showShimmer(shimmerMovieContainer.isShimmerStarted)
                 StatusFixtures.ERROR -> Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show()
                 StatusFixtures.SUCCESS -> {
                     if (it.data != null) {
-                        shimmerMovieContainer.stopShimmer()
-                        shimmerMovieContainer.visibility = View.GONE
+                        shimmerMovieContainer.hideShimmer()
                         movieAdapter.setData(it.data)
                     }
                 }

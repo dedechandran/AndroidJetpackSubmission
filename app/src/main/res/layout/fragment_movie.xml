@@ -5,6 +5,11 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.movie.MovieFragment">
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/movieRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
     <com.facebook.shimmer.ShimmerFrameLayout
         android:id="@+id/shimmerMovieContainer"
         android:layout_width="match_parent"
@@ -24,9 +29,5 @@
 
     </com.facebook.shimmer.ShimmerFrameLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/movieRecyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
 
 </FrameLayout>

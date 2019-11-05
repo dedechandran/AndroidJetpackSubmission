@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.androidjetpacksubmission.R
 import com.example.androidjetpacksubmission.domain.TvShow
+import com.example.androidjetpacksubmission.fixtures.IMAGE_URL
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.tv_show_item.view.*
 
@@ -41,7 +42,7 @@ class TvShowAdapter(private val listener: (TvShow) -> Unit) : RecyclerView.Adapt
                 listener(item)
             }
             containerView.tvShowImage.apply {
-                Glide.with(itemView).load(item.tvShowPoster).into(this)
+                Glide.with(itemView).load("$IMAGE_URL${item.tvShowPoster}").into(this)
             }
             containerView.tvShowTextName.text = item.tvShowTitle
             containerView.tvShowTextOverview.text = item.tvShowOverview
