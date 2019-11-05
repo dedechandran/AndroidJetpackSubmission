@@ -10,7 +10,7 @@ import com.example.androidjetpacksubmission.domain.TvShow
 import com.example.androidjetpacksubmission.utils.DataHelper
 import javax.inject.Inject
 
-class TvShowViewModel @Inject constructor(private val tvShowRepository: TvShowRepository) :
+class TvShowViewModel constructor(private val tvShowRepository: TvShowRepository) :
     ViewModel() {
     private var tvShows = MutableLiveData<Resource<List<TvShow>>>()
     private var tvShow = MutableLiveData<Resource<TvShow>>()
