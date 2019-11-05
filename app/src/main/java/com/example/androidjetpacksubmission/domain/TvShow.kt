@@ -1,15 +1,15 @@
 package com.example.androidjetpacksubmission.domain
 
 data class TvShow(
-    val tvShowId: Int,
-    val tvShowTitle: String,
-    val tvShowPoster: String,
-    val tvShowOverview: String,
-    val tvShowReleaseDate: String,
-    val tvShowLanguage: String? = null,
-    val tvShowDuration: String? = null,
-    val tvShowGenres: List<String>? = null,
-    val tvShowType: String? = null,
-    val tvShowStatus: String? = null
+    var tvShowId: Int,
+    var tvShowTitle: String,
+    var tvShowPoster: String,
+    var tvShowOverview: String,
+    var tvShowReleaseDate: String,
+    var tvShowLanguage: String? = null,
+    var tvShowDuration: String? = null,
+    var tvShowGenres: List<String>? = null,
+    var tvShowType: String? = null,
+    var tvShowStatus: String? = null
 
 )

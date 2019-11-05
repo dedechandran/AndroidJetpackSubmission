@@ -69,7 +69,7 @@ class MovieDetailActivity : BaseActivity() {
         detailTextMovieDate.text = movie.movieReleaseDate
 
         detailTextMovieDurationLabel.text = resources.getString(R.string.detail_duration_label)
-        detailTextMovieDuration.text = movie.movieDuration.toString()
+        detailTextMovieDuration.text = movie.movieDuration
 
         detailTextMovieLanguageLabel.text = resources.getString(R.string.detail_language_label)
         detailTextMovieLanguage.text = movie.movieLanguage

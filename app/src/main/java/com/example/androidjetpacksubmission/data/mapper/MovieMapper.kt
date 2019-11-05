@@ -30,10 +30,10 @@ class MovieMapper @Inject constructor() {
             moviePoster = movieDetailResponse.posterUrl,
             movieTitle = movieDetailResponse.originalTitle,
             movieReleaseDate = movieDetailResponse.releaseDate,
-            movieLanguage = DataHelper.convertLanguageCode(movieDetailResponse.originalLanguage),
-            movieRevenue = DataHelper.convertNominalToDollar(movieDetailResponse.revenue),
-            movieBudget = DataHelper.convertNominalToDollar(movieDetailResponse.budget),
-            movieDuration = DataHelper.convertDurationToString(movieDetailResponse.runtime),
+            movieLanguage = movieDetailResponse.originalLanguage,
+            movieRevenue = movieDetailResponse.revenue.toString(),
+            movieBudget = movieDetailResponse.budget.toString(),
+            movieDuration = movieDetailResponse.runtime.toString(),
             movieGenres = movieDetailResponse.genres.map {
                 it.name
             }

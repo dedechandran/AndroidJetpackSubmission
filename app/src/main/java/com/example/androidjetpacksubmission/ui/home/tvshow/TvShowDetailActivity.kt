@@ -70,7 +70,7 @@ class TvShowDetailActivity : BaseActivity() {
             .into(detailTvShowImage)
 
         detailTextTvShowDurationLabel.text = resources.getString(R.string.detail_duration_label)
-        detailTextTvShowDuration.text = tvShow.tvShowDuration.toString()
+        detailTextTvShowDuration.text = tvShow.tvShowDuration
 
         detailTextTvShowLanguageLabel.text = resources.getString(R.string.detail_language_label)
         detailTextTvShowLanguage.text = tvShow.tvShowLanguage
@@ -86,7 +86,6 @@ class TvShowDetailActivity : BaseActivity() {
 
         detailTextTvShowGenreLabel.text = resources.getString(R.string.detail_genres_label)
         showGenres(tvShow.tvShowGenres!!)
-
     }
 
     private fun showGenres(genres: List<String>) {

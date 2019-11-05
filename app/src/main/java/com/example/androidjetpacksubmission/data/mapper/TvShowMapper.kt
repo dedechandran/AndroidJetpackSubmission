@@ -3,7 +3,6 @@ package com.example.androidjetpacksubmission.data.mapper
 import com.example.androidjetpacksubmission.data.repositories.tvshow.remote.TvShowDetailResponse
 import com.example.androidjetpacksubmission.data.repositories.tvshow.remote.TvShowResponse
 import com.example.androidjetpacksubmission.domain.TvShow
-import com.example.androidjetpacksubmission.utils.DataHelper
 import javax.inject.Inject
 
 class TvShowMapper @Inject constructor() {
@@ -35,7 +34,7 @@ class TvShowMapper @Inject constructor() {
             tvShowGenres = tvShowDetailResponse.genres.map {
                 it.name
             },
-            tvShowLanguage = DataHelper.convertLanguageCode(tvShowDetailResponse.originalLanguage),
-            tvShowDuration = DataHelper.convertDurationToString(tvShowDetailResponse.duration[0])
+            tvShowLanguage = tvShowDetailResponse.originalLanguage,
+            tvShowDuration = tvShowDetailResponse.duration[0].toString()
         )
 }
