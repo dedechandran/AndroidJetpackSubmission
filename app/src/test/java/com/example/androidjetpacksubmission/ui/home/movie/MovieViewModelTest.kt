@@ -42,7 +42,7 @@ class MovieViewModelTest {
         val movies = MutableLiveData<Resource<List<Movie>>>()
         movies.value = resource
 
-        whenever(movieRepository.getAllMovies()).thenReturn(movies)
+        whenever(movieRepository.getAll()).thenReturn(movies)
 
         val observer: Observer<Resource<List<Movie>>> = mock()
         movieViewModel.getMovies().observeForever(observer)
@@ -57,7 +57,7 @@ class MovieViewModelTest {
         movie.value = resource
 
         val fakeMovieId = 0
-        whenever(movieRepository.getMovieDetail(fakeMovieId)).thenReturn(movie)
+        whenever(movieRepository.getDetail(fakeMovieId)).thenReturn(movie)
 
         val observer: Observer<Resource<Movie>> = mock()
         movieViewModel.getMovieDetail(fakeMovieId).observeForever(observer)

@@ -28,7 +28,7 @@ class MovieViewModel constructor(private val movieRepository: MovieRepository) :
         if(movies.value != null){
             return movies
         }
-        movies = movieRepository.getAllMovies()
+        movies = movieRepository.getAll()
         return movies
     }
 
@@ -36,7 +36,7 @@ class MovieViewModel constructor(private val movieRepository: MovieRepository) :
         if (movie.value != null) {
             return movie
         }
-        movie = movieRepository.getMovieDetail(movieId)
+        movie = movieRepository.getDetail(movieId)
         return Transformations.map(movie, ::movieTransformation)
     }
 }

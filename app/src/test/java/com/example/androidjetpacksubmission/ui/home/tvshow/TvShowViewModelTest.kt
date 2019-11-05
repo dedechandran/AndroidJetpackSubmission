@@ -47,7 +47,7 @@ class TvShowViewModelTest {
         val tvShow = MutableLiveData<Resource<List<TvShow>>>()
         tvShow.value = resource
 
-        `when`(tvShowRepository.getAllTvShows()).thenReturn(tvShow)
+        `when`(tvShowRepository.getAll()).thenReturn(tvShow)
 
         val observer : Observer<Resource<List<TvShow>>> = mock()
 
@@ -58,5 +58,16 @@ class TvShowViewModelTest {
 
     @Test
     fun getTvShowDetail() {
+        val fakeMovie = FakeDummyData.getTvShowList()[0]
+        val resource = Resource(status = StatusFixtures.SUCCESS, data = fakeMovie, message = null)
+        val movie = MutableLiveData<Resource<TvShow>>()
+        movie.value = resource
+
+        val fakeTvShowId = 0
+        whenever(tvShowRepository.getDetail(fakeTvShowId)).thenReturn(movie)
+
+        val observer: Observer<Resource<TvShow>> = mock()
+        tvShowViewModel.getTvShowDetail(fakeTvShowId).observeForever(observer)
+        verify(observer).onChanged(resource)
     }
 }

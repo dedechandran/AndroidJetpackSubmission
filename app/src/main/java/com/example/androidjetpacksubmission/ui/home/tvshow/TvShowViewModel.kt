@@ -28,7 +28,7 @@ class TvShowViewModel constructor(private val tvShowRepository: TvShowRepository
         if(tvShows.value != null){
             return tvShows
         }
-        tvShows = tvShowRepository.getAllTvShows()
+        tvShows = tvShowRepository.getAll()
         return tvShows
     }
 
@@ -36,7 +36,7 @@ class TvShowViewModel constructor(private val tvShowRepository: TvShowRepository
         if(tvShow.value != null){
             return tvShow
         }
-        tvShow = tvShowRepository.getTvShowDetail(tvShowId)
+        tvShow = tvShowRepository.getDetail(tvShowId)
         return Transformations.map(tvShow,::tvShowTransformation)
     }
 }

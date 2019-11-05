@@ -9,10 +9,9 @@ import com.example.androidjetpacksubmission.domain.Movie
 import javax.inject.Inject
 import javax.inject.Singleton
 
-@Singleton
 class MovieRepositoryImpl @Inject constructor(private val movieRemoteDataSource: MovieRemoteDataSource) : MovieRepository {
     override
-    fun getAllMovies(): MutableLiveData<Resource<List<Movie>>> {
+    fun getAll(): MutableLiveData<Resource<List<Movie>>> {
         val movies = MutableLiveData<Resource<List<Movie>>>()
         movies.postValue(Resource.loading())
         movieRemoteDataSource.loadMovies(object : RepositoryCallback<List<Movie>> {
@@ -28,10 +27,10 @@ class MovieRepositoryImpl @Inject constructor(private val movieRemoteDataSource:
         return movies
     }
     override
-    fun getMovieDetail(movieId: Int): MutableLiveData<Resource<Movie>> {
+    fun getDetail(id: Int): MutableLiveData<Resource<Movie>> {
         val movie = MutableLiveData<Resource<Movie>>()
         movie.postValue(Resource.loading())
-        movieRemoteDataSource.loadMovieDetail(movieId, object : RepositoryCallback<Movie> {
+        movieRemoteDataSource.loadMovieDetail(id, object : RepositoryCallback<Movie> {
             override fun onSuccess(data: Movie) {
                 movie.postValue(Resource.success(data))
             }
