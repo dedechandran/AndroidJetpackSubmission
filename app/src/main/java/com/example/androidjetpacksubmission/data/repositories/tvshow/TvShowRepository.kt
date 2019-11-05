@@ -9,7 +9,7 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class TvShowRepository @Inject constructor(private val tvShowRemoteDataSource: TvShowRemoteDataSource) {
+open class TvShowRepository @Inject constructor(private val tvShowRemoteDataSource: TvShowRemoteDataSource) {
 
     fun getAllTvShows(): MutableLiveData<Resource<List<TvShow>>> {
         val tvShows = MutableLiveData<Resource<List<TvShow>>>()

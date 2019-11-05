@@ -6,6 +6,7 @@ import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import com.example.androidjetpacksubmission.base.Resource
 import com.example.androidjetpacksubmission.data.repositories.movie.MovieRepository
+import com.example.androidjetpacksubmission.data.repositories.movie.MovieRepositoryImpl
 import com.example.androidjetpacksubmission.domain.Movie
 import com.example.androidjetpacksubmission.utils.DataHelper
 
@@ -24,11 +25,15 @@ class MovieViewModel constructor(private val movieRepository: MovieRepository) :
     }
 
     fun getMovies(): LiveData<Resource<List<Movie>>> {
-        if (movies.value != null) {
+        if(movies.value != null){
             return movies
         }
-        movies = movieRepository.getAllMovies()
+        fetchMovies()
         return movies
+    }
+
+    fun fetchMovies() {
+        movies = movieRepository.getAllMovies()
     }
 
     fun getMovieDetail(movieId: Int): LiveData<Resource<Movie>> {
