@@ -28,7 +28,6 @@ class MovieViewModelTest {
     @Mock
     private lateinit var movieRepository: MovieRepository
 
-
     private lateinit var movieViewModel: MovieViewModel
     @Before
     fun setUp() {
@@ -38,10 +37,10 @@ class MovieViewModelTest {
 
     @Test
     fun getMovies() {
-        val fakeTvShows = FakeDummyData.getMovieList()
-        val resource = Resource(status = StatusFixtures.SUCCESS, data = fakeTvShows, message = null)
+        val fakeMovies = FakeDummyData.getMovieList()
+        val resource = Resource(status = StatusFixtures.SUCCESS, data = fakeMovies, message = null)
         val movies = MutableLiveData<Resource<List<Movie>>>()
-        movies.postValue(resource)
+        movies.value = resource
 
         whenever(movieRepository.getAllMovies()).thenReturn(movies)
 
@@ -52,5 +51,16 @@ class MovieViewModelTest {
 
     @Test
     fun getMovieDetail() {
+        val fakeMovie = FakeDummyData.getMovieList()[0]
+        val resource = Resource(status = StatusFixtures.SUCCESS, data = fakeMovie, message = null)
+        val movie = MutableLiveData<Resource<Movie>>()
+        movie.value = resource
+
+        val fakeMovieId = 0
+        whenever(movieRepository.getMovieDetail(fakeMovieId)).thenReturn(movie)
+
+        val observer: Observer<Resource<Movie>> = mock()
+        movieViewModel.getMovieDetail(fakeMovieId).observeForever(observer)
+        verify(observer).onChanged(resource)
     }
 }
