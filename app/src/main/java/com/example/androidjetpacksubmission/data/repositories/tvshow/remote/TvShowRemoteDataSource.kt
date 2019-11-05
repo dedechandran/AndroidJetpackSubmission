@@ -28,7 +28,22 @@ class TvShowRemoteDataSource @Inject constructor(
                 val tvShows = tvShowMapper.transform(response.body()!!)
                 callback.onSuccess(tvShows)
             }
+        })
+    }
 
+    fun loadTvShowDetail(tvShowId : Int, callback: RepositoryCallback<TvShow>){
+        tvShowService.getTvShow(tvShowId).enqueue(object : Callback<TvShowDetailResponse>{
+            override fun onFailure(call: Call<TvShowDetailResponse>, t: Throwable) {
+                callback.onFailure(t)
+            }
+
+            override fun onResponse(
+                call: Call<TvShowDetailResponse>,
+                response: Response<TvShowDetailResponse>
+            ) {
+                val tvShow = tvShowMapper.transform(response.body()!!)
+                callback.onSuccess(tvShow)
+            }
         })
     }
 

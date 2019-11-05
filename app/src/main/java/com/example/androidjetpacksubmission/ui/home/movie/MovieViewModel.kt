@@ -23,7 +23,7 @@ class MovieViewModel constructor(private val movieRepository: MovieRepository) :
         if(movie.value != null){
             return movie
         }
-        movie = movieRepository.getMovieById(movieId)
+        movie = movieRepository.getMovieDetail(movieId)
         return movie
     }
 }

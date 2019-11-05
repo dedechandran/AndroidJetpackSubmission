@@ -28,7 +28,7 @@ class MovieRepository @Inject constructor(private val movieRemoteDataSource: Mov
         return movies
     }
 
-    fun getMovieById(movieId: Int): MutableLiveData<Resource<Movie>> {
+    fun getMovieDetail(movieId: Int): MutableLiveData<Resource<Movie>> {
         val movie = MutableLiveData<Resource<Movie>>()
         movie.postValue(Resource.loading())
         movieRemoteDataSource.loadMovieDetail(movieId, object : RepositoryCallback<Movie> {

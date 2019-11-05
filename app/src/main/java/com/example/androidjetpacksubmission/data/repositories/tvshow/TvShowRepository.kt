@@ -25,4 +25,19 @@ class TvShowRepository @Inject constructor(private val tvShowRemoteDataSource: T
         })
         return tvShows
     }
+
+    fun getTvShowDetail(tvShowId : Int) : MutableLiveData<Resource<TvShow>>{
+        val tvShow = MutableLiveData<Resource<TvShow>>()
+        tvShow.postValue(Resource.loading())
+        tvShowRemoteDataSource.loadTvShowDetail(tvShowId, object : RepositoryCallback<TvShow>{
+            override fun onSuccess(data: TvShow) {
+                tvShow.postValue(Resource.success(data))
+            }
+
+            override fun onFailure(t: Throwable) {
+                tvShow.postValue(Resource.error(t.message))
+            }
+        })
+        return tvShow
+    }
 }

@@ -6,7 +6,7 @@ data class MovieDetailResponse(
     @SerializedName("id")
     val id: Int,
 
-    @SerializedName(value = "poster_path", alternate = ["backdrop_path"])
+    @SerializedName("poster_path")
     val posterUrl: String,
 
     @SerializedName("genres")
@@ -15,7 +15,7 @@ data class MovieDetailResponse(
     @SerializedName("original_language")
     var originalLanguage: String,
 
-    @SerializedName(value = "original_title", alternate = ["title"])
+    @SerializedName("title")
     var originalTitle: String,
 
     @SerializedName("release_date")

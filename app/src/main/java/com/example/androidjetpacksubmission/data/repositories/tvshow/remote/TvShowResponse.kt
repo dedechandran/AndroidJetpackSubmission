@@ -19,13 +19,13 @@ data class TvShowResponse(
         @SerializedName("id")
         var id: Int,
 
-        @SerializedName(value = "poster_path", alternate = ["backdrop_path"])
+        @SerializedName("poster_path")
         var posterUrl: String,
 
         @SerializedName("original_language")
         var originalLanguage: String,
 
-        @SerializedName(value = "original_name", alternate = ["name"])
+        @SerializedName("name")
         var title: String,
 
         @SerializedName("first_air_date")

@@ -19,13 +19,13 @@ data class MovieResponse(
         @SerializedName("id")
         var id: Int,
 
-        @SerializedName(value = "poster_path", alternate = ["backdrop_path"])
+        @SerializedName("poster_path")
         var posterUrl: String,
 
         @SerializedName("original_language")
         var originalLanguage: String,
 
-        @SerializedName("original_title")
+        @SerializedName("title")
         var originalTitle: String,
 
         @SerializedName("release_date")

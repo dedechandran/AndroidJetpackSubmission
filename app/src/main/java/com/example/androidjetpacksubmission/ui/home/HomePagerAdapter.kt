@@ -6,7 +6,7 @@ import com.example.androidjetpacksubmission.fixtures.*
 import com.example.androidjetpacksubmission.ui.home.movie.MovieFragment
 import com.example.androidjetpacksubmission.ui.home.tvshow.TvShowFragment
 
-class MoviePagerAdapter(fm: FragmentManager) :
+class HomePagerAdapter(fm: FragmentManager) :
     FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 
     override fun getItem(position: Int) = when (position) {

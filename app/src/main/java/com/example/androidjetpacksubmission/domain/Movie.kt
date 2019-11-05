@@ -6,9 +6,9 @@ data class Movie(
     val moviePoster: String,
     val movieOverview: String,
     val movieReleaseDate: String,
-    var movieDuration: Int? = null,
+    var movieDuration: String? = null,
     var movieGenres: List<String>? = null,
     var movieLanguage: String? = null,
-    var movieBudget : Long? = null,
-    var movieRevenue: Long? = null
+    var movieBudget : String? = null,
+    var movieRevenue: String? = null
 )

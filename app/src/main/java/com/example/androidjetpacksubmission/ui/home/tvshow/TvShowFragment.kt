@@ -47,10 +47,11 @@ class TvShowFragment : BaseFragment() {
 
         tvShowViewModel?.getAllTvShows()?.observe(viewLifecycleOwner, Observer {
             when(it.status){
-                StatusFixtures.LOADING -> shimmerTvShowContainer.showShimmer(shimmerTvShowContainer.isShimmerStarted)
+                StatusFixtures.LOADING -> shimmerTvShowContainer.startShimmer()
                 StatusFixtures.ERROR -> Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show()
                 StatusFixtures.SUCCESS -> {
-                    shimmerTvShowContainer.hideShimmer()
+                    shimmerTvShowContainer.stopShimmer()
+                    shimmerTvShowContainer.visibility = View.GONE
                     tvShowAdapter.setData(it.data)
                 }
             }

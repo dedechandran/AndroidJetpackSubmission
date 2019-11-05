@@ -40,8 +40,7 @@
             app:layout_constraintBottom_toTopOf="@id/detailTextTvShowDate"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/detailTvShowImageContainer"
-            app:layout_constraintTop_toTopOf="@id/detailTvShowImageContainer"
-            tools:text="The Walking Deaddddddddddddddd" />
+            app:layout_constraintTop_toTopOf="@id/detailTvShowImageContainer" />
 
         <TextView
             android:id="@+id/detailTextTvShowDate"
@@ -50,8 +49,7 @@
             app:layout_constraintBottom_toTopOf="@id/detailTextTvShowDurationLabel"
             app:layout_constraintEnd_toEndOf="@id/detailTextTvShowTitle"
             app:layout_constraintStart_toStartOf="@id/detailTextTvShowTitle"
-            app:layout_constraintTop_toBottomOf="@id/detailTextTvShowTitle"
-            tools:text="October 3, 2018" />
+            app:layout_constraintTop_toBottomOf="@id/detailTextTvShowTitle" />
 
         <TextView
             android:id="@+id/detailTextTvShowDurationLabel"
@@ -59,7 +57,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_8dp"
-            android:text="@string/detail_duration_label"
             app:layout_constraintBottom_toTopOf="@id/detailTextTvShowDuration"
             app:layout_constraintEnd_toStartOf="@id/detailTextTvShowLanguageLabel"
             app:layout_constraintStart_toStartOf="@id/detailTextTvShowDate"
@@ -70,7 +67,6 @@
             style="@style/TextAppearance.MaterialComponents.Caption"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/detail_language_label"
             app:layout_constraintBottom_toBottomOf="@id/detailTextTvShowDurationLabel"
             app:layout_constraintEnd_toEndOf="@id/detailTextTvShowDate"
             app:layout_constraintStart_toEndOf="@id/detailTextTvShowDurationLabel"
@@ -85,8 +81,7 @@
             app:layout_constraintEnd_toStartOf="@id/detailTextTvShowLanguage"
             app:layout_constraintStart_toEndOf="@id/detailTextTvShowDate"
             app:layout_constraintStart_toStartOf="@id/detailTextTvShowDurationLabel"
-            app:layout_constraintTop_toBottomOf="@id/detailTextTvShowDurationLabel"
-            tools:text="2h 15m" />
+            app:layout_constraintTop_toBottomOf="@id/detailTextTvShowDurationLabel" />
 
         <TextView
             android:id="@+id/detailTextTvShowLanguage"
@@ -105,7 +100,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_8dp"
-            android:text="@string/detail_type_label"
             app:layout_constraintBottom_toTopOf="@id/detailTextTvShowType"
             app:layout_constraintEnd_toStartOf="@id/detailTextTvShowStatusLabel"
             app:layout_constraintStart_toStartOf="@id/detailTextTvShowDuration"
@@ -116,7 +110,6 @@
             style="@style/TextAppearance.MaterialComponents.Caption"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/detail_status_label"
             app:layout_constraintBottom_toBottomOf="@id/detailTextTvShowTypeLabel"
             app:layout_constraintEnd_toEndOf="@id/detailTextTvShowLanguage"
             app:layout_constraintStart_toEndOf="@id/detailTextTvShowTypeLabel"
@@ -131,8 +124,7 @@
             app:layout_constraintBottom_toBottomOf="@id/detailTvShowImageContainer"
             app:layout_constraintEnd_toStartOf="@id/detailTextTvShowStatus"
             app:layout_constraintStart_toStartOf="@id/detailTextTvShowTypeLabel"
-            app:layout_constraintTop_toBottomOf="@id/detailTextTvShowTypeLabel"
-            tools:text="Scripted" />
+            app:layout_constraintTop_toBottomOf="@id/detailTextTvShowTypeLabel" />
 
         <TextView
             android:id="@+id/detailTextTvShowStatus"
@@ -142,8 +134,7 @@
             app:layout_constraintBottom_toBottomOf="@id/detailTextTvShowType"
             app:layout_constraintEnd_toEndOf="@id/detailTextTvShowStatusLabel"
             app:layout_constraintStart_toEndOf="@id/detailTextTvShowType"
-            app:layout_constraintTop_toTopOf="@id/detailTextTvShowType"
-            tools:text="Released" />
+            app:layout_constraintTop_toTopOf="@id/detailTextTvShowType" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -160,8 +151,7 @@
         <TextView
             android:id="@+id/detailTextTvShowGenreLabel"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/detail_genres_label" />
+            android:layout_height="wrap_content" />
 
         <com.google.android.flexbox.FlexboxLayout
             android:id="@+id/detailTvShowGenresContainer"
@@ -178,8 +168,7 @@
             android:id="@+id/detailTextTvShowOverviewLabel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_8dp"
-            android:text="@string/detail_overview_label" />
+            android:layout_marginTop="@dimen/margin_8dp" />
 
         <TextView
             android:id="@+id/detailTextTvShowOverview"
@@ -187,11 +176,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_8dp"
-            android:layout_marginBottom="@dimen/margin_8dp"
-            tools:text="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" />
+            android:layout_marginBottom="@dimen/margin_8dp" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmerTvShowDetailContainer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <include layout="@layout/detail_placeholder" />
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

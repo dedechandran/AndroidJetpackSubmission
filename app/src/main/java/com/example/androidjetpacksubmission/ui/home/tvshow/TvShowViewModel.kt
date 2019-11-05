@@ -11,6 +11,7 @@ import javax.inject.Inject
 class TvShowViewModel @Inject constructor(private val tvShowRepository: TvShowRepository) :
     ViewModel() {
     private var tvShows = MutableLiveData<Resource<List<TvShow>>>()
+    private var tvShow = MutableLiveData<Resource<TvShow>>()
 
     fun getAllTvShows() : LiveData<Resource<List<TvShow>>>{
         if(tvShows.value != null){
@@ -18,5 +19,13 @@ class TvShowViewModel @Inject constructor(private val tvShowRepository: TvShowRe
         }
         tvShows = tvShowRepository.getAllTvShows()
         return tvShows
+    }
+
+    fun getTvShowDetail(tvShowId : Int) : LiveData<Resource<TvShow>>{
+        if(tvShow.value != null){
+            return tvShow
+        }
+        tvShow = tvShowRepository.getTvShowDetail(tvShowId)
+        return tvShow
     }
 }
