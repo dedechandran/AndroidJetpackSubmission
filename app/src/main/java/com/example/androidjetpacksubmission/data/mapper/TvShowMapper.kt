@@ -1,7 +1,7 @@
 package com.example.androidjetpacksubmission.data.mapper
 
-import com.example.androidjetpacksubmission.data.repositories.tvshow.remote.TvShowDetailResponse
-import com.example.androidjetpacksubmission.data.repositories.tvshow.remote.TvShowResponse
+import com.example.androidjetpacksubmission.data.repositories.tvshow.remote.response.TvShowDetailResponse
+import com.example.androidjetpacksubmission.data.repositories.tvshow.remote.response.TvShowResponse
 import com.example.androidjetpacksubmission.domain.TvShow
 import javax.inject.Inject
 

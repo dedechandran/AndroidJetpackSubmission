@@ -1,4 +1,4 @@
-package com.example.androidjetpacksubmission.data.repositories.movie.remote
+package com.example.androidjetpacksubmission.data.repositories.movie.remote.response
 
 import com.google.gson.annotations.SerializedName
 

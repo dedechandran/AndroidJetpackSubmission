@@ -1,9 +1,9 @@
 package com.example.androidjetpacksubmission.di.modules
 
 import com.example.androidjetpacksubmission.data.repositories.movie.MovieRepository
-import com.example.androidjetpacksubmission.data.repositories.movie.MovieRepositoryImpl
+import com.example.androidjetpacksubmission.data.repositories.movie.DefaultMovieRepository
 import com.example.androidjetpacksubmission.data.repositories.tvshow.TvShowRepository
-import com.example.androidjetpacksubmission.data.repositories.tvshow.TvShowRepositoryImpl
+import com.example.androidjetpacksubmission.data.repositories.tvshow.DefaultTvShowRepository
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -12,11 +12,11 @@ import javax.inject.Singleton
 object RepositoryModule {
     @Singleton
     @Provides
-    fun provideMovieRepository(movieRepositoryImpl: MovieRepositoryImpl): MovieRepository =
-        movieRepositoryImpl
+    fun provideMovieRepository(defaultMovieRepository: DefaultMovieRepository): MovieRepository =
+        defaultMovieRepository
 
     @Singleton
     @Provides
-    fun provideTvShowRepository(tvShowRepositoryImpl: TvShowRepositoryImpl): TvShowRepository =
-        tvShowRepositoryImpl
+    fun provideTvShowRepository(defaultTvShowRepository: DefaultTvShowRepository): TvShowRepository =
+        defaultTvShowRepository
 }

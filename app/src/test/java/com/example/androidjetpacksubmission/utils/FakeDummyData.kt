@@ -1,9 +1,9 @@
 package com.example.androidjetpacksubmission.utils
 
-import com.example.androidjetpacksubmission.data.repositories.movie.remote.MovieDetailResponse
-import com.example.androidjetpacksubmission.data.repositories.movie.remote.MovieResponse
-import com.example.androidjetpacksubmission.data.repositories.tvshow.remote.TvShowDetailResponse
-import com.example.androidjetpacksubmission.data.repositories.tvshow.remote.TvShowResponse
+import com.example.androidjetpacksubmission.data.repositories.movie.remote.response.MovieDetailResponse
+import com.example.androidjetpacksubmission.data.repositories.movie.remote.response.MovieResponse
+import com.example.androidjetpacksubmission.data.repositories.tvshow.remote.response.TvShowDetailResponse
+import com.example.androidjetpacksubmission.data.repositories.tvshow.remote.response.TvShowResponse
 import com.example.androidjetpacksubmission.domain.Movie
 import com.example.androidjetpacksubmission.domain.TvShow
 

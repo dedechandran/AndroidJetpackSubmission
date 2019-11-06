@@ -1,7 +1,9 @@
 package com.example.androidjetpacksubmission.di.modules
 
 import com.example.androidjetpacksubmission.data.repositories.movie.remote.MovieRemoteDataSource
-import com.example.androidjetpacksubmission.data.repositories.movie.remote.MovieRemoteDataSourceImpl
+import com.example.androidjetpacksubmission.data.repositories.movie.remote.DefaultMovieRemoteDataSource
+import com.example.androidjetpacksubmission.data.repositories.tvshow.remote.DefaultTvShowRemoteDataSource
+import com.example.androidjetpacksubmission.data.repositories.tvshow.remote.TvShowRemoteDataSource
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -10,6 +12,11 @@ import javax.inject.Singleton
 object DataSourceModule {
     @Singleton
     @Provides
-    fun provideMovieRemoteDataSource(movieRemoteDataSourceImpl: MovieRemoteDataSourceImpl): MovieRemoteDataSource =
-        movieRemoteDataSourceImpl
+    fun provideMovieRemoteDataSource(defaultMovieRemoteDataSource: DefaultMovieRemoteDataSource): MovieRemoteDataSource =
+        defaultMovieRemoteDataSource
+
+    @Singleton
+    @Provides
+    fun provideTvShowRemoteDataSource(defaultTvShowRemoteDataSource: DefaultTvShowRemoteDataSource): TvShowRemoteDataSource =
+        defaultTvShowRemoteDataSource
 }

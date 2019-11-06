@@ -3,9 +3,9 @@ package com.example.androidjetpacksubmission.data.repositories.movie
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.example.androidjetpacksubmission.base.RepositoryCallback
 import com.example.androidjetpacksubmission.data.mapper.MovieMapper
-import com.example.androidjetpacksubmission.data.repositories.movie.remote.MovieDetailResponse
+import com.example.androidjetpacksubmission.data.repositories.movie.remote.response.MovieDetailResponse
 import com.example.androidjetpacksubmission.data.repositories.movie.remote.MovieRemoteDataSource
-import com.example.androidjetpacksubmission.data.repositories.movie.remote.MovieResponse
+import com.example.androidjetpacksubmission.data.repositories.movie.remote.response.MovieResponse
 import com.example.androidjetpacksubmission.fixtures.StatusFixtures
 import com.example.androidjetpacksubmission.utils.FakeDummyData
 import com.example.androidjetpacksubmission.utils.LiveDataHelper
@@ -23,7 +23,7 @@ import org.mockito.MockitoAnnotations
 import org.mockito.junit.MockitoJUnitRunner
 
 @RunWith(MockitoJUnitRunner::class)
-class MovieRepositoryImplTest {
+class DefaultMovieRepositoryTest {
     @Rule
     @JvmField
     val instantTaskExecutorRule = InstantTaskExecutorRule()
@@ -34,12 +34,12 @@ class MovieRepositoryImplTest {
     @Mock
     private lateinit var movieMapper: MovieMapper
 
-    private lateinit var movieRepository: MovieRepositoryImpl
+    private lateinit var defaultMovieRepository: DefaultMovieRepository
 
     @Before
     fun setUp() {
         MockitoAnnotations.initMocks(this)
-        movieRepository = MovieRepositoryImpl(movieRemoteDataSource, movieMapper)
+        defaultMovieRepository = DefaultMovieRepository(movieRemoteDataSource, movieMapper)
     }
 
     @Test
@@ -48,7 +48,7 @@ class MovieRepositoryImplTest {
         val fakeMovieList = FakeDummyData.getMovieList()
         whenever(movieMapper.transform(fakeMovieResponse)).thenReturn(fakeMovieList)
 
-        val moviesLiveData = movieRepository.getAll()
+        val moviesLiveData = defaultMovieRepository.getAll()
         argumentCaptor<RepositoryCallback<MovieResponse>>().apply {
             verify(movieRemoteDataSource).loadMovies(capture())
             firstValue.onSuccess(fakeMovieResponse)
@@ -69,7 +69,7 @@ class MovieRepositoryImplTest {
         whenever(movieMapper.transform(fakeMovieDetailResponse)).thenReturn(fakeMovieDetail)
 
         val fakeMovieId = 0
-        val movieLiveData = movieRepository.getDetail(fakeMovieId)
+        val movieLiveData = defaultMovieRepository.getDetail(fakeMovieId)
         argumentCaptor<RepositoryCallback<MovieDetailResponse>>().apply {
             verify(movieRemoteDataSource).loadMovieDetail(eq(fakeMovieId), capture())
             firstValue.onSuccess(fakeMovieDetailResponse)

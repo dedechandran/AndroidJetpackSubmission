@@ -6,7 +6,6 @@ import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import com.example.androidjetpacksubmission.base.Resource
 import com.example.androidjetpacksubmission.data.repositories.movie.MovieRepository
-import com.example.androidjetpacksubmission.data.repositories.movie.MovieRepositoryImpl
 import com.example.androidjetpacksubmission.domain.Movie
 import com.example.androidjetpacksubmission.utils.DataHelper
 
