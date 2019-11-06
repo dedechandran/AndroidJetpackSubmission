@@ -5,8 +5,13 @@ import com.example.androidjetpacksubmission.base.RepositoryCallback
 import com.example.androidjetpacksubmission.data.mapper.MovieMapper
 import com.example.androidjetpacksubmission.data.repositories.movie.remote.MovieRemoteDataSource
 import com.example.androidjetpacksubmission.data.repositories.movie.remote.MovieResponse
+import com.example.androidjetpacksubmission.domain.Movie
+import com.example.androidjetpacksubmission.utils.LiveDataHelper
 import com.nhaarman.mockitokotlin2.argumentCaptor
 import com.nhaarman.mockitokotlin2.verify
+import com.nhaarman.mockitokotlin2.whenever
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNotNull
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -49,12 +54,29 @@ class MovieRepositoryImplTest {
                 )
             )
         )
-        movieRepository.getAll()
+
+        whenever(movieMapper.transform(fakeMovieResponse)).thenReturn(
+            listOf(
+                Movie(
+                    movieId = 0,
+                    movieReleaseDate = "2019-09-12",
+                    movieTitle = "SiMadun",
+                    moviePoster = "/zxccvbnmlsdheiry.jpg",
+                    movieOverview = "Tendangan si madun"
+                )
+            )
+        )
+
+        val movieLiveData = movieRepository.getAll()
         argumentCaptor<RepositoryCallback<MovieResponse>>().apply {
             verify(movieRemoteDataSource).loadMovies(capture())
             firstValue.onSuccess(fakeMovieResponse)
         }
         verify(movieMapper).transform(fakeMovieResponse)
+        val result = LiveDataHelper.getValue(movieLiveData)
+        print(result.status)
+        assertNotNull(result.data)
+        assertEquals(fakeMovieResponse.data.size, result.data?.size)
     }
 
     @Test

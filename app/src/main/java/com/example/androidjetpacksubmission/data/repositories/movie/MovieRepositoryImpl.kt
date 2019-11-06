@@ -18,7 +18,7 @@ class MovieRepositoryImpl @Inject constructor(
     override
     fun getAll(): MutableLiveData<Resource<List<Movie>>> {
         val movies = MutableLiveData<Resource<List<Movie>>>()
-//        movies.postValue(Resource.loading())
+        movies.postValue(Resource.loading())
         movieRemoteDataSource.loadMovies(object : RepositoryCallback<MovieResponse> {
             override fun onSuccess(data: MovieResponse) {
                 val mappedMovies = movieMapper.transform(data)

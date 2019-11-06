@@ -1,5 +1,6 @@
 package com.example.androidjetpacksubmission.utils
 
+import com.example.androidjetpacksubmission.data.repositories.movie.remote.MovieResponse
 import com.example.androidjetpacksubmission.domain.Movie
 import com.example.androidjetpacksubmission.domain.TvShow
 
@@ -342,10 +343,17 @@ class FakeDummyData {
                     tvShowStatus = "Ended"
                 )
             )
-
-
             return tvShows
         }
+
+        fun getMovieResponse(): MovieResponse =
+            MovieResponse(
+                listOf(
+                    MovieResponse.MovieData(
+
+                    )
+                )
+            )
     }
 
 }
