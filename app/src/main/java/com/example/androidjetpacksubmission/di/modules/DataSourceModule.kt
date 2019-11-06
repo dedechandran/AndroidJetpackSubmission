@@ -1,7 +1,7 @@
 package com.example.androidjetpacksubmission.di.modules
 
-import com.example.androidjetpacksubmission.data.repositories.movie.remote.MovieRemoteDataSource
 import com.example.androidjetpacksubmission.data.repositories.movie.remote.DefaultMovieRemoteDataSource
+import com.example.androidjetpacksubmission.data.repositories.movie.remote.MovieRemoteDataSource
 import com.example.androidjetpacksubmission.data.repositories.tvshow.remote.DefaultTvShowRemoteDataSource
 import com.example.androidjetpacksubmission.data.repositories.tvshow.remote.TvShowRemoteDataSource
 import dagger.Module

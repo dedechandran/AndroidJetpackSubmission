@@ -17,7 +17,7 @@ data class TvShowResponse(
         var title: String,
 
         @SerializedName("first_air_date")
-        var firstAirDate : String,
+        var firstAirDate: String,
 
         @SerializedName("overview")
         var overview: String

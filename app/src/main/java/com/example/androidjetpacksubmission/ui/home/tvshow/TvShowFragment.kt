@@ -29,9 +29,9 @@ class TvShowFragment : BaseFragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        tvShowAdapter = TvShowAdapter{
-            Intent(context,TvShowDetailActivity::class.java).run {
-                putExtra(EXTRA_TV_SHOW_ID,it.tvShowId)
+        tvShowAdapter = TvShowAdapter {
+            Intent(context, TvShowDetailActivity::class.java).run {
+                putExtra(EXTRA_TV_SHOW_ID, it.tvShowId)
                 startActivity(this)
             }
         }
@@ -42,11 +42,11 @@ class TvShowFragment : BaseFragment() {
         }
 
         tvShowViewModel = activity?.run {
-            ViewModelProviders.of(this,viewModelFactory)[TvShowViewModel::class.java]
+            ViewModelProviders.of(this, viewModelFactory)[TvShowViewModel::class.java]
         }
 
         tvShowViewModel?.getAllTvShows()?.observe(viewLifecycleOwner, Observer {
-            when(it.status){
+            when (it.status) {
                 StatusFixtures.LOADING -> shimmerTvShowContainer.startShimmer()
                 StatusFixtures.ERROR -> Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show()
                 StatusFixtures.SUCCESS -> {

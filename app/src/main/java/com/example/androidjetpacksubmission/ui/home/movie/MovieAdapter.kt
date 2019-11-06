@@ -11,7 +11,8 @@ import com.example.androidjetpacksubmission.fixtures.IMAGE_URL
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.movie_item.view.*
 
-class MovieAdapter(private val listener: (Movie) -> Unit) : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
+class MovieAdapter(private val listener: (Movie) -> Unit) :
+    RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
     private val data = mutableListOf<Movie>()
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -25,19 +26,19 @@ class MovieAdapter(private val listener: (Movie) -> Unit) : RecyclerView.Adapter
             )
         )
 
-    fun setData(data: List<Movie>?){
+    fun setData(data: List<Movie>?) {
         data?.let { this.data.addAll(it) }
         notifyDataSetChanged()
     }
 
     override fun getItemCount() = data.size
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
-        holder.bindItem(data[position],listener)
+        holder.bindItem(data[position], listener)
     }
 
     inner class MovieViewHolder(override val containerView: View) :
         RecyclerView.ViewHolder(containerView), LayoutContainer {
-        fun bindItem(item: Movie,listener: (Movie) -> Unit) {
+        fun bindItem(item: Movie, listener: (Movie) -> Unit) {
             containerView.movieCardContainer.setOnClickListener {
                 listener(item)
             }

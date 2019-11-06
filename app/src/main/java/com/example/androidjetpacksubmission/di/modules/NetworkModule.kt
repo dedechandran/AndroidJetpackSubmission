@@ -14,20 +14,24 @@ import javax.inject.Singleton
 object NetworkModule {
     @Singleton
     @Provides
-    fun provideGsonConverterFactory() : GsonConverterFactory = GsonConverterFactory.create()
+    fun provideGsonConverterFactory(): GsonConverterFactory = GsonConverterFactory.create()
 
     @Singleton
     @Provides
-    fun provideOkHttpClient(networkInterceptor: NetworkInterceptor): OkHttpClient = OkHttpClient.Builder()
-        .addInterceptor(networkInterceptor)
-        .connectTimeout(120, TimeUnit.SECONDS)
-        .writeTimeout(90, TimeUnit.SECONDS)
-        .readTimeout(90, TimeUnit.SECONDS)
-        .build()
+    fun provideOkHttpClient(networkInterceptor: NetworkInterceptor): OkHttpClient =
+        OkHttpClient.Builder()
+            .addInterceptor(networkInterceptor)
+            .connectTimeout(120, TimeUnit.SECONDS)
+            .writeTimeout(90, TimeUnit.SECONDS)
+            .readTimeout(90, TimeUnit.SECONDS)
+            .build()
 
     @Singleton
     @Provides
-    fun provideRetrofit(okHttpClient: OkHttpClient, gsonConverterFactory: GsonConverterFactory) : Retrofit =
+    fun provideRetrofit(
+        okHttpClient: OkHttpClient,
+        gsonConverterFactory: GsonConverterFactory
+    ): Retrofit =
         Retrofit.Builder().client(okHttpClient)
             .addConverterFactory(gsonConverterFactory)
             .baseUrl(MOVIE_DB_URL)

@@ -24,7 +24,7 @@ class MovieViewModel constructor(private val movieRepository: MovieRepository) :
     }
 
     fun getMovies(): LiveData<Resource<List<Movie>>> {
-        if(movies.value != null){
+        if (movies.value != null) {
             return movies
         }
         movies = movieRepository.getAll()

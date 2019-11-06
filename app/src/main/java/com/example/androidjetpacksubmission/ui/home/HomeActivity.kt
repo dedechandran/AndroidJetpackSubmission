@@ -12,6 +12,6 @@ class HomeActivity : BaseActivity() {
         mainViewPager.adapter =
             HomePagerAdapter(supportFragmentManager)
         mainTabMovie.setupWithViewPager(mainViewPager)
-        
+
     }
 }

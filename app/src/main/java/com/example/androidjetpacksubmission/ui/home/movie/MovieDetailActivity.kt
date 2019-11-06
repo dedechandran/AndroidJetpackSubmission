@@ -1,7 +1,6 @@
 package com.example.androidjetpacksubmission.ui.home.movie
 
 import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.widget.TextView
@@ -18,7 +17,6 @@ import com.example.androidjetpacksubmission.fixtures.IMAGE_URL
 import com.example.androidjetpacksubmission.fixtures.StatusFixtures
 import com.google.android.flexbox.FlexboxLayout
 import kotlinx.android.synthetic.main.activity_movie_detail.*
-import java.text.NumberFormat
 import javax.inject.Inject
 
 class MovieDetailActivity : BaseActivity() {
@@ -35,15 +33,19 @@ class MovieDetailActivity : BaseActivity() {
             title = resources.getString(R.string.movie_detail_title)
         }
 
-        movieViewModel = ViewModelProviders.of(this,viewModelFactory)[MovieViewModel::class.java]
+        movieViewModel = ViewModelProviders.of(this, viewModelFactory)[MovieViewModel::class.java]
 
-        val movieId = intent.getIntExtra(EXTRA_MOVIE_ID,0)
+        val movieId = intent.getIntExtra(EXTRA_MOVIE_ID, 0)
         movieViewModel?.getMovieDetail(movieId)?.observe(this, Observer {
-            when(it.status){
+            when (it.status) {
                 StatusFixtures.LOADING -> shimmerMovieDetailContainer.startShimmer()
-                StatusFixtures.ERROR -> Toast.makeText(this,"ERROR GAYS",Toast.LENGTH_SHORT).show()
+                StatusFixtures.ERROR -> Toast.makeText(
+                    this,
+                    "ERROR GAYS",
+                    Toast.LENGTH_SHORT
+                ).show()
                 StatusFixtures.SUCCESS -> {
-                    if(it.data != null) {
+                    if (it.data != null) {
                         shimmerMovieDetailContainer.stopShimmer()
                         shimmerMovieDetailContainer.visibility = View.GONE
                         showMovieDetail(it.data)
@@ -55,13 +57,13 @@ class MovieDetailActivity : BaseActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if(item.itemId == android.R.id.home){
+        if (item.itemId == android.R.id.home) {
             finish()
         }
         return super.onOptionsItemSelected(item)
     }
 
-    private fun showMovieDetail(movie: Movie){
+    private fun showMovieDetail(movie: Movie) {
         Glide.with(this)
             .load("$IMAGE_URL${movie.moviePoster}")
             .into(detailMovieImage)
@@ -88,9 +90,12 @@ class MovieDetailActivity : BaseActivity() {
     }
 
 
-    private fun showGenres(genres: List<String>){
-        for(i in genres.indices){
-            val genreView = layoutInflater.inflate(R.layout.genre_item,detailMovieGenresContainer) as FlexboxLayout
+    private fun showGenres(genres: List<String>) {
+        for (i in genres.indices) {
+            val genreView = layoutInflater.inflate(
+                R.layout.genre_item,
+                detailMovieGenresContainer
+            ) as FlexboxLayout
             val genreText = genreView.getChildAt(i) as TextView
             genreText.text = genres[i]
         }

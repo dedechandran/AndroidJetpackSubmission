@@ -11,7 +11,8 @@ import com.example.androidjetpacksubmission.fixtures.IMAGE_URL
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.tv_show_item.view.*
 
-class TvShowAdapter(private val listener: (TvShow) -> Unit) : RecyclerView.Adapter<TvShowAdapter.TvShowViewHolder>() {
+class TvShowAdapter(private val listener: (TvShow) -> Unit) :
+    RecyclerView.Adapter<TvShowAdapter.TvShowViewHolder>() {
     private val data = mutableListOf<TvShow>()
 
     fun setData(data: List<TvShow>?) {
@@ -31,13 +32,13 @@ class TvShowAdapter(private val listener: (TvShow) -> Unit) : RecyclerView.Adapt
     override fun getItemCount() = data.size
 
     override fun onBindViewHolder(holder: TvShowViewHolder, position: Int) {
-        holder.bind(data[position],listener)
+        holder.bind(data[position], listener)
     }
 
 
     inner class TvShowViewHolder(override val containerView: View) :
         RecyclerView.ViewHolder(containerView), LayoutContainer {
-        fun bind(item: TvShow,listener: (TvShow) -> Unit) {
+        fun bind(item: TvShow, listener: (TvShow) -> Unit) {
             containerView.tvShowCardContainer.setOnClickListener {
                 listener(item)
             }

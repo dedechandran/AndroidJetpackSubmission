@@ -11,5 +11,5 @@ abstract class FragmentProviderModule {
     abstract fun provideMovieFragment(): MovieFragment
 
     @ContributesAndroidInjector
-    abstract fun provideTvShowFragment() : TvShowFragment
+    abstract fun provideTvShowFragment(): TvShowFragment
 }

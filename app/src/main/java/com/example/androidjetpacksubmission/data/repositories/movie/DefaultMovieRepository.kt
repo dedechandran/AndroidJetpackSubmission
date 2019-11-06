@@ -5,8 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import com.example.androidjetpacksubmission.base.RepositoryCallback
 import com.example.androidjetpacksubmission.base.Resource
 import com.example.androidjetpacksubmission.data.mapper.MovieMapper
-import com.example.androidjetpacksubmission.data.repositories.movie.remote.response.MovieDetailResponse
 import com.example.androidjetpacksubmission.data.repositories.movie.remote.MovieRemoteDataSource
+import com.example.androidjetpacksubmission.data.repositories.movie.remote.response.MovieDetailResponse
 import com.example.androidjetpacksubmission.data.repositories.movie.remote.response.MovieResponse
 import com.example.androidjetpacksubmission.domain.Movie
 import javax.inject.Inject

@@ -9,7 +9,8 @@ import retrofit2.Callback
 import retrofit2.Response
 import javax.inject.Inject
 
-class DefaultTvShowRemoteDataSource @Inject constructor(private val tvShowService: TvShowService) : TvShowRemoteDataSource {
+class DefaultTvShowRemoteDataSource @Inject constructor(private val tvShowService: TvShowService) :
+    TvShowRemoteDataSource {
     override
     fun loadTvShows(callback: RepositoryCallback<TvShowResponse>) {
         EspressoIdlingResourceHelper.increment()
@@ -32,7 +33,7 @@ class DefaultTvShowRemoteDataSource @Inject constructor(private val tvShowServic
     }
 
     override
-    fun loadTvShowDetail(tvShowId : Int, callback: RepositoryCallback<TvShowDetailResponse>){
+    fun loadTvShowDetail(tvShowId: Int, callback: RepositoryCallback<TvShowDetailResponse>) {
         EspressoIdlingResourceHelper.increment()
         tvShowService.getTvShow(tvShowId).enqueue(object : Callback<TvShowDetailResponse> {
             override fun onFailure(call: Call<TvShowDetailResponse>, t: Throwable) {

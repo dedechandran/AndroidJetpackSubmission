@@ -9,6 +9,6 @@ data class Movie(
     var movieDuration: String? = null,
     var movieGenres: List<String>? = null,
     var movieLanguage: String? = null,
-    var movieBudget : String? = null,
+    var movieBudget: String? = null,
     var movieRevenue: String? = null
 )
