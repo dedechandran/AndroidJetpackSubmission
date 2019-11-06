@@ -51,7 +51,7 @@ class MovieViewModelTest {
 
     @Test
     fun getMovieDetail() {
-        val fakeMovie = FakeDummyData.getMovieList()[0]
+        val fakeMovie = FakeDummyData.getMovieDetail()
         val resource = Resource(status = StatusFixtures.SUCCESS, data = fakeMovie, message = null)
         val movie = MutableLiveData<Resource<Movie>>()
         movie.value = resource

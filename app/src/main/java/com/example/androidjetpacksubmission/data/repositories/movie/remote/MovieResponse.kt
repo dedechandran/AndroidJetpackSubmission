@@ -13,9 +13,6 @@ data class MovieResponse(
         @SerializedName("poster_path")
         var posterUrl: String,
 
-        @SerializedName("original_language")
-        var originalLanguage: String,
-
         @SerializedName("title")
         var originalTitle: String,
 
