@@ -77,7 +77,6 @@ class DefaultMovieRepositoryTest {
         verify(movieMapper).transform(fakeMovieDetailResponse)
 
         val result = LiveDataHelper.getValue(movieLiveData)
-        assertNotNull(result.data)
         assertEquals(StatusFixtures.SUCCESS, result.status)
         assertNotNull(result.data)
         assertNull(result.message)
